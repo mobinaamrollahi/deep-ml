@@ -2,7 +2,7 @@
 
 My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solution here was written by hand.
 
-**1** solved · 1 problems · 0 labs · 0 math
+**2** solved · 2 problems · 0 labs · 0 math
 
 ![Coverage](./coverage.svg)
 
@@ -13,6 +13,7 @@ My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solu
 | | Difficulty | Solved | |
 | --- | --- | --- | --- |
 | [Maximum Likelihood Estimation for Gaussian Distribution](https://www.deep-ml.com/problems/337) | medium | 2026-10-06 | [solution](problems/0337-maximum-likelihood-estimation-for-gaussian-distribution) |
+| [Newton's Method for Optimization](https://www.deep-ml.com/problems/221) | medium | 2026-10-06 | [solution](problems/0221-newton-s-method-for-optimization) |
 
 ---
 
