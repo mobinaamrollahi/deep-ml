@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T01:00:54.142Z",
+  "generated_at": "2026-10-10T03:10:10.339Z",
   "items": {
     "problem:337": {
       "kind": "problem",
@@ -91,6 +91,19 @@
       "last_pushed_at": "2026-10-08T01:00:53.626Z",
       "language": "python",
       "lines": 4
+    },
+    "problem:340": {
+      "kind": "problem",
+      "id": "340",
+      "title": "Exponential Distribution PDF and CDF",
+      "difficulty": "easy",
+      "category": "Statistics",
+      "url": "https://www.deep-ml.com/problems/340",
+      "path": "problems/0340-exponential-distribution-pdf-and-cdf",
+      "first_solved_at": "2026-10-10T03:10:09.771Z",
+      "last_pushed_at": "2026-10-10T03:10:09.771Z",
+      "language": "python",
+      "lines": 35
     }
   }
 }
