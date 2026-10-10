@@ -18,18 +18,18 @@
 This document covers machine learning techniques explored in the deep-ml problem set.
 
 \section{Probability and Statistics}
-\label{sec:probability-and-statistics}
+\label{sec:prob-stat}
 
 \subsection{Distributions}
-\label{subsec:probability-and-statistics:distributions}
+\label{subsec:prob-stat:dist}
 
 \subsubsection{Exponential}
-\label{subsubsec:probability-and-statistics:distributions:exponential}
+\label{subsubsec:prob-stat:dist:exp}
 
 \paragraph{PDF}
-\label{para:probability-and-statistics:distributions:exponential:pdf}
+\label{para:prob-stat:dist:exp:pdf}
 \begin{equation}
-    \label{eq:exponential-pdf}
+    \label{eq:exp-pdf}
     p(x; \lambda) =
     \begin{cases}
         \lambda e^{-\lambda x}, & x \geq 0 \\
@@ -38,9 +38,9 @@ This document covers machine learning techniques explored in the deep-ml problem
 \end{equation}
 
 \paragraph{CDF}
-\label{para:probability-and-statistics:distributions:exponential:cdf}
+\label{para:prob-stat:dist:exp:cdf}
 \begin{equation}
-    \label{eq:exponential-cdf}
+    \label{eq:exp-cdf}
     P(x; \lambda) = P(X \leq x) =
     \begin{cases}
         1 - e^{-\lambda x}, & x \geq 0 \\
@@ -49,24 +49,24 @@ This document covers machine learning techniques explored in the deep-ml problem
 \end{equation}
 
 \paragraph{Mean}
-\label{para:probability-and-statistics:distributions:exponential:mean}
+\label{para:prob-stat:dist:exp:mean}
 \begin{equation}
-    \label{eq:exponential-mean}
+    \label{eq:exp-mean}
     \mathbb{E}[X] = \frac{1}{\lambda}
 \end{equation}
 
 \paragraph{Variance}
-\label{para:probability-and-statistics:distributions:exponential:variance}
+\label{para:prob-stat:dist:exp:variance}
 \begin{equation}
-    \label{eq:exponential-variance}
+    \label{eq:exp-variance}
     \operatorname{Var}(X) = \frac{1}{\lambda^2}
 \end{equation}
 
 \subsection{Softmax}
-\label{subsec:probability-and-statistics:softmax}
+\label{subsec:prob-stat:softmax}
 
 \subsection{Maximum Likelihood Estimation}
-\label{subsec:probability-and-statistics:maximum-likelihood-estimation}
+\label{subsec:prob-stat:maximum-likelihood-estimation}
 
 \section{Linear Algebra}
 \label{sec:linear-algebra}
