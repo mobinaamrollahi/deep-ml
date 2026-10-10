@@ -15,14 +15,44 @@
 
 \tableofcontents
 
-\section{Introduction}
-
 This document covers machine learning techniques explored in the deep-ml problem set.
 
-\section{Activation Functions}
+\section{Probability and Statistics}
 
-\subsection{Sigmoid}
+\subsection{Distributions}
+\subsubsection{Exponential}
+\paragraph{PDF}
+\begin{equation}
+    \label{eq:pdf}
+    p(x; \lambda) = 
+    \begin{case}
+    \lambda ^{-\lambda x}, x \geq 0
+    0, x < 0
+    \end[cases]
+\end{equation}
 
+\paragraph{CDF}
+\begin{equation}
+    \label{eq:cdf}
+    P(x; \lambda) = p(X \le x) 
+    \begin{case}
+    1 - \lambda ^{-\lambda x}, x \geq 0
+    0, x < 0
+    \end[cases]
+\end{equation}
+
+\paragraph{Mean}
+\begin{equation}
+    \label{eq:mean}
+    \mathbb{E}[X] = \frac{1}{\lambda}
+    \end[cases]
+\end{equation}
+
+\paragraph{Variance}
+\begin{equation}
+    \label{eq:variance}
+    \Var{X} = \frac{1}{\lambda^2}
+\end{equation}
 \subsection{Softmax}
 
 \section{Linear Algebra}
