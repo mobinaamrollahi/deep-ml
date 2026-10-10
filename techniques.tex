@@ -18,51 +18,60 @@
 This document covers machine learning techniques explored in the deep-ml problem set.
 
 \section{Probability and Statistics}
+\label{sec:probability-and-statistics}
 
 \subsection{Distributions}
+\label{subsec:probability-and-statistics:distributions}
+
 \subsubsection{Exponential}
+\label{subsubsec:probability-and-statistics:distributions:exponential}
+
 \paragraph{PDF}
+\label{para:probability-and-statistics:distributions:exponential:pdf}
 \begin{equation}
-    \label{eq:pdf}
-    p(x; \lambda) = 
-    \begin{case}
-    \lambda ^{-\lambda x}, x \geq 0
-    0, x < 0
-    \end[cases]
+    \label{eq:exponential-pdf}
+    p(x; \lambda) =
+    \begin{cases}
+        \lambda e^{-\lambda x}, & x \geq 0 \\
+        0, & x < 0
+    \end{cases}
 \end{equation}
 
 \paragraph{CDF}
+\label{para:probability-and-statistics:distributions:exponential:cdf}
 \begin{equation}
-    \label{eq:cdf}
-    P(x; \lambda) = p(X \le x) 
-    \begin{case}
-    1 - \lambda ^{-\lambda x}, x \geq 0
-    0, x < 0
-    \end[cases]
+    \label{eq:exponential-cdf}
+    P(x; \lambda) = P(X \leq x) =
+    \begin{cases}
+        1 - e^{-\lambda x}, & x \geq 0 \\
+        0, & x < 0
+    \end{cases}
 \end{equation}
 
 \paragraph{Mean}
+\label{para:probability-and-statistics:distributions:exponential:mean}
 \begin{equation}
-    \label{eq:mean}
+    \label{eq:exponential-mean}
     \mathbb{E}[X] = \frac{1}{\lambda}
-    \end[cases]
 \end{equation}
 
 \paragraph{Variance}
+\label{para:probability-and-statistics:distributions:exponential:variance}
 \begin{equation}
-    \label{eq:variance}
-    \Var{X} = \frac{1}{\lambda^2}
+    \label{eq:exponential-variance}
+    \operatorname{Var}(X) = \frac{1}{\lambda^2}
 \end{equation}
+
 \subsection{Softmax}
-
-\section{Linear Algebra}
-
-\subsection{Transformation Matrices}
-
-\section{Probability \& Statistics}
+\label{subsec:probability-and-statistics:softmax}
 
 \subsection{Maximum Likelihood Estimation}
+\label{subsec:probability-and-statistics:maximum-likelihood-estimation}
 
-\subsection{Exponential Distribution}
+\section{Linear Algebra}
+\label{sec:linear-algebra}
+
+\subsection{Transformation Matrices}
+\label{subsec:linear-algebra:transformation-matrices}
 
 \end{document}
