@@ -69,36 +69,28 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{para:prob-stat:dist:norm:pdf}
 \begin{equation}
     \label{eq:norm-pdf}
-    p(x; \lambda) =
-    \begin{cases}
-        \lambda e^{-\lambda x}, & x \geq 0 \\
-        0, & x < 0
-    \end{cases}
+    p(x;\, \mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
 \end{equation}
 
 \paragraph{CDF}
 \label{para:prob-stat:dist:norm:cdf}
 \begin{equation}
     \label{eq:norm-cdf}
-    P(x; \lambda) = P(X \leq x) =
-    \begin{cases}
-        1 - e^{-\lambda x}, & x \geq 0 \\
-        0, & x < 0
-    \end{cases}
+    \Phi(x;\, \mu, \sigma^2) = P(X \leq x) = \frac{1}{2}\left[1 + \operatorname{erf}\!\left(\frac{x - \mu}{\sigma\sqrt{2}}\right)\right]
 \end{equation}
 
 \paragraph{Mean}
 \label{para:prob-stat:dist:norm:mean}
 \begin{equation}
-    \label{eq:exp-mean}
-    \mathbb{E}[X] = \frac{1}{\lambda}
+    \label{eq:norm-mean}
+    \mathbb{E}[X] = \mu
 \end{equation}
 
 \paragraph{Variance}
 \label{para:prob-stat:dist:norm:variance}
 \begin{equation}
     \label{eq:norm-variance}
-    \operatorname{Var}(X) = \frac{1}{\lambda^2}
+    \operatorname{Var}(X) = \sigma^2
 \end{equation}
 
 \subsubsection{Bernoulli}
@@ -119,7 +111,7 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{para:prob-stat:dist:bern:cdf}
 \begin{equation}
     \label{eq:bern-cdf}
-    P(x \le X) =
+    P(X \le x) =
     \begin{cases}
         0, & x < 0 \\
         1-p, & 0 < x \le 1 \\
