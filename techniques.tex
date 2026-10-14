@@ -114,8 +114,8 @@ This document covers machine learning techniques explored in the deep-ml problem
     P(X \le x) =
     \begin{cases}
         0, & x < 0 \\
-        1-p, & 0 < x \le 1 \\
-        1, & x \ge 1 \\
+        1-p, & 0 \le x < 1 \\
+        1, & x \ge 1
     \end{cases}
 \end{equation}
 
@@ -135,6 +135,15 @@ This document covers machine learning techniques explored in the deep-ml problem
 
 \subsection{Softmax}
 \label{subsec:prob-stat:softmax}
+\begin{equation}
+    \label{eq:softmax}
+    \sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+\end{equation}
+
+\begin{equation}
+    \label{eq:log-softmax}
+    \log \sigma(\mathbf{z})_i = z_i - \log \sum_{j=1}^{K} e^{z_j}
+\end{equation}
 
 \subsection{Maximum Likelihood Estimation}
 \label{subsec:prob-stat:maximum-likelihood-estimation}
@@ -144,5 +153,12 @@ This document covers machine learning techniques explored in the deep-ml problem
 
 \subsection{Transformation Matrices}
 \label{subsec:linear-algebra:transformation-matrices}
+
+\section{Numpy}
+\label{sec:numpy}
+
+\begin{itemize}
+    \item \texttt{np.array(lst)} turns a list into an array; \texttt{arr.tolist()} turns it back.
+\end{itemize}
 
 \end{document}
