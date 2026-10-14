@@ -119,8 +119,7 @@ This document covers machine learning techniques explored in the deep-ml problem
     \end{cases}
 \end{equation}
 
-\paragraph{Mean}
-\label{para:prob-stat:dist:bern:mean}
+\paragraph{Mean}\label{para:prob-stat:dist:bern:mean}
 \begin{equation}
     \label{eq:bern-mean}
     \mathbb{E}[X] = 0 \times (1 - p) + 1 \times p = p
@@ -133,16 +132,23 @@ This document covers machine learning techniques explored in the deep-ml problem
     \operatorname{Var}(X) = p (1-p)
 \end{equation}
 
-\subsection{Softmax}
-\label{subsec:prob-stat:softmax}
+\subsection{Softmax}\label{subsec:prob-stat:softmax}
+\subsubsection{Softmax Probabilities}
 \begin{equation}
     \label{eq:softmax}
-    \sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+    \sigma(\mathbf{z}_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
 \end{equation}
 
+\subsubsection{Logarithm of Softmax Probabilities}\label{subsubsec:prob-stat:softmax:log}
 \begin{equation}
     \label{eq:log-softmax}
-    \log \sigma(\mathbf{z})_i = z_i - \log \sum_{j=1}^{K} e^{z_j}
+    \log \sigma(\mathbf{z}_i) = z_i - \log \sum_{j=1}^{K} e^{z_j}
+\end{equation}
+
+\subsubsection{Stable Softmax}\label{subsubsec:prob-stat:softmax:stable}
+\begin{equation}
+    \label{eq:stable-softmax}
+    \sigma(\mathbf{z}_i) = \frac{e^{z_i - \max{z_j}}}{\sum_{j=1}^{K} e^{z_j- \max{z_j}}}
 \end{equation}
 
 \subsection{Maximum Likelihood Estimation}
@@ -158,7 +164,9 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{sec:numpy}
 
 \begin{itemize}
-    \item \texttt{np.array(lst)} turns a list into an array; \texttt{arr.tolist()} turns it back.
+    \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
+    \item \texttt{np.random.choice(elements, p=probabilities)} pick from a numpy array based on specific probabilities.
+    \item \texttt{np.random.seed(seed)} sets the random seed for the purpose of reproducibility.
 \end{itemize}
 
 \end{document}
