@@ -133,22 +133,22 @@ This document covers machine learning techniques explored in the deep-ml problem
 \end{equation}
 
 \subsection{Softmax}\label{subsec:prob-stat:softmax}
-\subsubsection{Softmax Probabilities}
+\subsubsection{Softmax Probabilities}\label{subsubsec:prob-stat:softmax:prob}
 \begin{equation}
     \label{eq:softmax}
-    \sigma(\mathbf{z}_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+    \sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
 \end{equation}
 
 \subsubsection{Logarithm of Softmax Probabilities}\label{subsubsec:prob-stat:softmax:log}
 \begin{equation}
     \label{eq:log-softmax}
-    \log \sigma(\mathbf{z}_i) = z_i - \log \sum_{j=1}^{K} e^{z_j}
+    \log \sigma(\mathbf{z})_i = z_i - \log \sum_{j=1}^{K} e^{z_j}
 \end{equation}
 
 \subsubsection{Stable Softmax}\label{subsubsec:prob-stat:softmax:stable}
 \begin{equation}
     \label{eq:stable-softmax}
-    \sigma(\mathbf{z}_i) = \frac{e^{z_i - \max{z_j}}}{\sum_{j=1}^{K} e^{z_j- \max{z_j}}}
+    \sigma(\mathbf{z})_i = \frac{e^{z_i - \max_k z_k}}{\sum_{j=1}^{K} e^{z_j - \max_k z_k}}
 \end{equation}
 
 \subsection{Maximum Likelihood Estimation}
@@ -165,7 +165,7 @@ This document covers machine learning techniques explored in the deep-ml problem
 
 \begin{itemize}
     \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
-    \item \texttt{np.random.choice(elements, p=probabilities)} pick from a numpy array based on specific probabilities.
+    \item \texttt{np.random.choice(elements, p=probabilities)} picks from a numpy array based on specific probabilities.
     \item \texttt{np.random.seed(seed)} sets the random seed for the purpose of reproducibility.
 \end{itemize}
 
