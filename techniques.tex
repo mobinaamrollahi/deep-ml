@@ -23,6 +23,37 @@ This document covers machine learning techniques explored in the deep-ml problem
 \subsection{Distributions}
 \label{subsec:prob-stat:dist}
 
+\subsubsection{Normal (Gaussian)}
+\label{subsubsec:prob-stat:dist:norm}
+
+\paragraph{PDF}
+\label{para:prob-stat:dist:norm:pdf}
+\begin{equation}
+    \label{eq:norm-pdf}
+    p(x;\, \mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\end{equation}
+
+\paragraph{CDF}
+\label{para:prob-stat:dist:norm:cdf}
+\begin{equation}
+    \label{eq:norm-cdf}
+    \Phi(x;\, \mu, \sigma^2) = P(X \leq x) = \frac{1}{2}\left[1 + \operatorname{erf}\!\left(\frac{x - \mu}{\sigma\sqrt{2}}\right)\right]
+\end{equation}
+
+\paragraph{Mean}
+\label{para:prob-stat:dist:norm:mean}
+\begin{equation}
+    \label{eq:norm-mean}
+    \mathbb{E}[X] = \mu
+\end{equation}
+
+\paragraph{Variance}
+\label{para:prob-stat:dist:norm:variance}
+\begin{equation}
+    \label{eq:norm-variance}
+    \operatorname{Var}(X) = \sigma^2
+\end{equation}
+
 \subsubsection{Exponential}
 \label{subsubsec:prob-stat:dist:exp}
 
@@ -62,39 +93,35 @@ This document covers machine learning techniques explored in the deep-ml problem
     \operatorname{Var}(X) = \frac{1}{\lambda^2}
 \end{equation}
 
-\subsubsection{Normal (Gaussian)}
-\label{subsubsec:prob-stat:dist:norm}
+\subsubsection{Poisson}
+\label{subsubsec:prob-stat:dist:poiss}
 
-\paragraph{PDF}
-\label{para:prob-stat:dist:norm:pdf}
+\paragraph{PMF}
+\label{para:prob-stat:dist:poiss:pdf}
 \begin{equation}
-    \label{eq:norm-pdf}
-    p(x;\, \mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+    f(k; \lambda) = P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}
 \end{equation}
 
 \paragraph{CDF}
-\label{para:prob-stat:dist:norm:cdf}
+\label{para:prob-stat:dist:poiss:cdf}
 \begin{equation}
-    \label{eq:norm-cdf}
-    \Phi(x;\, \mu, \sigma^2) = P(X \leq x) = \frac{1}{2}\left[1 + \operatorname{erf}\!\left(\frac{x - \mu}{\sigma\sqrt{2}}\right)\right]
+    e^{-\lambda} \sum_{j=0}^{\floor{k}} \frac{\lambda^j}{j!}
 \end{equation}
 
 \paragraph{Mean}
-\label{para:prob-stat:dist:norm:mean}
+\label{para:prob-stat:dist:poiss:mean}
 \begin{equation}
-    \label{eq:norm-mean}
-    \mathbb{E}[X] = \mu
+    \mathbb{E}[X] = \lambda
 \end{equation}
 
 \paragraph{Variance}
-\label{para:prob-stat:dist:norm:variance}
+\label{para:prob-stat:dist:poiss:variance}
 \begin{equation}
-    \label{eq:norm-variance}
-    \operatorname{Var}(X) = \sigma^2
+    Var(X) = \lambda
 \end{equation}
 
-\subsubsection{Bernoulli}
-\label{subsubsec:prob-stat:dist:bern}
+\subsubsection{Exponential}
+\label{subsubsec:prob-stat:dist:exp}
 
 \paragraph{PMF}
 \label{para:prob-stat:dist:bern:pmf}
@@ -168,5 +195,23 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item \texttt{np.random.choice(elements, p=probabilities)} picks from a numpy array based on specific probabilities.
     \item \texttt{np.random.seed(seed)} sets the random seed for the purpose of reproducibility.
 \end{itemize}
+
+\section{Machine Learning}
+\label{sec:ml}
+
+\subsection{Generative Learning Algorithms}
+\label{subsec:ml:gla}
+
+\subsubsection{Gaussian Discriminant Analysis}
+\label{subsubsec:ml:gla:gda}
+
+\subsubsection{Naive Bayes}
+\label{subsubsec:ml:gla:nb}
+The naive assumption of features being independent from one another. Suppose there are $K$ classes to classify the variable $y$, give feature vector $\mathbf{x} = (x_1, \cdots, x_i)$. Based on naive bayes, the corresponding classified is th function that assigns a class label $\hat{y} = C_k$ from some $k$, $1 \leq k \leq K$ as follows:
+\begin{equation}
+\label{eq:naive-bayes}
+    \hat{y} = \arg_max_{1 \leq k \leq K} p(C_k) {i=1}^{n}p(x_i \mid C_k).
+\end{equation}
+
 
 \end{document}
