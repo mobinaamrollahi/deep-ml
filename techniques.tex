@@ -97,31 +97,35 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{subsubsec:prob-stat:dist:poiss}
 
 \paragraph{PMF}
-\label{para:prob-stat:dist:poiss:pdf}
+\label{para:prob-stat:dist:poiss:pmf}
 \begin{equation}
+    \label{eq:poiss-pmf}
     f(k; \lambda) = P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}
 \end{equation}
 
 \paragraph{CDF}
 \label{para:prob-stat:dist:poiss:cdf}
 \begin{equation}
-    e^{-\lambda} \sum_{j=0}^{\floor{k}} \frac{\lambda^j}{j!}
+    \label{eq:poiss-cdf}
+    e^{-\lambda} \sum_{j=0}^{\lfloor k \rfloor} \frac{\lambda^j}{j!}
 \end{equation}
 
 \paragraph{Mean}
 \label{para:prob-stat:dist:poiss:mean}
 \begin{equation}
+    \label{eq:poiss-mean}
     \mathbb{E}[X] = \lambda
 \end{equation}
 
 \paragraph{Variance}
 \label{para:prob-stat:dist:poiss:variance}
 \begin{equation}
-    Var(X) = \lambda
+    \label{eq:poiss-variance}
+    \operatorname{Var}(X) = \lambda
 \end{equation}
 
-\subsubsection{Exponential}
-\label{subsubsec:prob-stat:dist:exp}
+\subsubsection{Bernoulli}
+\label{subsubsec:prob-stat:dist:bern}
 
 \paragraph{PMF}
 \label{para:prob-stat:dist:bern:pmf}
@@ -207,10 +211,10 @@ This document covers machine learning techniques explored in the deep-ml problem
 
 \subsubsection{Naive Bayes}
 \label{subsubsec:ml:gla:nb}
-The naive assumption of features being independent from one another. Suppose there are $K$ classes to classify the variable $y$, give feature vector $\mathbf{x} = (x_1, \cdots, x_i)$. Based on naive bayes, the corresponding classified is th function that assigns a class label $\hat{y} = C_k$ from some $k$, $1 \leq k \leq K$ as follows:
+The Naive Bayes classifier relies on the naive assumption that features are independent of one another. Suppose there are $K$ classes to classify the variable $y$, given feature vector $\mathbf{x} = (x_1, \cdots, x_n)$. Based on Naive Bayes, the corresponding classifier is the function that assigns a class label $\hat{y} = C_k$ for some $k$, $1 \leq k \leq K$, as follows:
 \begin{equation}
 \label{eq:naive-bayes}
-    \hat{y} = \arg_max_{1 \leq k \leq K} p(C_k) {i=1}^{n}p(x_i \mid C_k).
+    \hat{y} = \operatorname*{argmax}_{1 \leq k \leq K} p(C_k) \prod_{i=1}^{n} p(x_i \mid C_k).
 \end{equation}
 
 
