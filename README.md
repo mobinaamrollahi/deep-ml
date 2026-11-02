@@ -2,7 +2,7 @@
 
 My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solution here was written by hand.
 
-**11** solved · 11 problems · 0 labs · 0 math
+**12** solved · 12 problems · 0 labs · 0 math
 
 ![Coverage](./coverage.svg)
 
@@ -13,6 +13,7 @@ My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solu
 | | Difficulty | Solved | |
 | --- | --- | --- | --- |
 | [Binary Classification with Logistic Regression](https://www.deep-ml.com/problems/104) | easy | 2026-10-07 | [solution](problems/0104-binary-classification-with-logistic-regression) |
+| [Compute Posterior Probability using Bayes' Theorem](https://www.deep-ml.com/problems/336) | easy | 2026-11-02 | [solution](problems/0336-compute-posterior-probability-using-bayes-theorem) |
 | [Exponential Distribution PDF and CDF](https://www.deep-ml.com/problems/340) | easy | 2026-10-10 | [solution](problems/0340-exponential-distribution-pdf-and-cdf) |
 | [Gibbs Softmax Action Selection](https://www.deep-ml.com/problems/641) | easy | 2026-10-14 | [solution](problems/0641-gibbs-softmax-action-selection) |
 | [Implementation of Log Softmax Function](https://www.deep-ml.com/problems/39) | easy | 2026-10-14 | [solution](problems/0039-implementation-of-log-softmax-function) |
