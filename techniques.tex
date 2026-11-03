@@ -196,8 +196,8 @@ This document covers machine learning techniques explored in the deep-ml problem
 
 \begin{itemize}
     \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
-    \item \texttt{np.random.choice(elements, p=probabilities)} picks from a numpy array based on specific probabilities.
-    \item \texttt{np.random.seed(seed)} sets the random seed for the purpose of reproducibility.
+    \item \texttt{np.random.choice(elements, p=probabilities)} samples an element from an array according to given probabilities.
+    \item \texttt{np.random.seed(seed)} sets the random seed for reproducibility.
 \end{itemize}
 
 \section{Machine Learning}
@@ -216,6 +216,22 @@ The Naive Bayes classifier relies on the naive assumption that features are inde
 \label{eq:naive-bayes}
     \hat{y} = \operatorname*{argmax}_{1 \leq k \leq K} p(C_k) \prod_{i=1}^{n} p(x_i \mid C_k).
 \end{equation}
+
+\subsubsection{Laplace Smoothing}
+\label{subsubsec:ml:gla:laplace-smoothing}
+Laplace smoothing (additive smoothing) prevents zero-probability estimates when a feature value does not appear in the training data for a given class. For a discrete feature $x_i$ taking value $v$, the smoothed class-conditional probability is:
+\begin{equation}
+    \label{eq:laplace-class-cond}
+    \hat{P}(x_i = v \mid C_k) = \frac{N_{k,i,v} + \alpha}{M_k + \alpha\, d_i},
+\end{equation}
+where $N_{k,i,v} = \#\{m : x_i^{(m)} = v,\, y^{(m)} = C_k\}$ is the number of training examples in class $C_k$ for which feature $x_i$ equals $v$, $M_k$ is the total number of training examples in class $C_k$, $d_i = \lvert V_i \rvert$ is the number of distinct values feature $x_i$ can take, and $\alpha > 0$ is the smoothing parameter ($\alpha = 1$ for Laplace smoothing; $0 < \alpha < 1$ for Lidstone smoothing).
+
+The smoothed class prior is:
+\begin{equation}
+    \label{eq:laplace-prior}
+    \hat{P}(C_k) = \frac{M_k + \alpha}{M + \alpha K},
+\end{equation}
+where $M$ is the total number of training examples and $K$ is the number of classes.
 
 
 \end{document}
