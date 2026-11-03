@@ -19,7 +19,7 @@
 
     \item Broadcasting lets NumPy operate on arrays with compatible but different shapes; \texttt{(m,\,n) - (n,)} subtracts a row vector from every row without explicit reshaping.
 
-    \item \textbf{\texttt{np.linalg.norm(arr, axis=1, keepdims=True)}} computes a row-wise L2 norm; dividing \texttt{arr} by the result normalizes each row to unit length.
+    \item \textbf{\texttt{np.linalg.norm(arr, axis=1, keepdims=True)}} computes row-wise L2 norms; dividing \texttt{arr} by the result normalizes each row to unit length.
 
     \item \textbf{\texttt{arr[mask]}} selects elements where a boolean array is \texttt{True}; useful for filtering rows by class label or applying threshold conditions.
 
@@ -37,49 +37,76 @@
 
 \section{Deep-ML Practice}
 
-\begin{longtable}{p{9.5cm} l c c}
+\begin{longtable}{p{7.5cm} l l c c}
 \caption{Deep-ML practice tracker} \label{tab:deep-ml} \\
 \hline
-\textbf{Question} & \textbf{Level} & \textbf{Revisit} & \textbf{Done} \\
+\textbf{Question} & \textbf{Level} & \textbf{Date} & \textbf{Revisit} & \textbf{Done} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Question} & \textbf{Level} & \textbf{Revisit} & \textbf{Done} \\
+\textbf{Question} & \textbf{Level} & \textbf{Date} & \textbf{Revisit} & \textbf{Done} \\
 \hline
 \endhead
 \hline
 \endfoot
 
-\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{1. NumPy Fundamentals (Week 1)}} \\
-\href{https://www.deep-ml.com/problems/1}{1. Matrix-Vector Dot Product} & Easy & & \\
-\href{https://www.deep-ml.com/problems/121}{121. Vector Element-wise Sum} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1022}{1022. L2 Normalization Along an Axis} & Easy & & \\
-\href{https://www.deep-ml.com/problems/10}{10. Calculate Covariance Matrix} & Easy & & \\
-\href{https://www.deep-ml.com/problems/16}{16. Feature Scaling Implementation} & Easy & & \\
-\href{https://www.deep-ml.com/problems/29}{29. Random Shuffle of Dataset} & Easy & & $\checkmark$ \\
-\href{https://www.deep-ml.com/problems/30}{30. Batch Iterator for Dataset} & Easy & & $\checkmark$ \\
-\href{https://www.deep-ml.com/problems/34}{34. One-Hot Encoding of Nominal Values} & Easy & & $\checkmark$ \\
+\rowcolor{gray!20} \multicolumn{5}{l}{\textbf{1. NumPy Fundamentals (Week 1)}} \\
+\href{https://www.deep-ml.com/problems/1}{1. Matrix-Vector Dot Product} & Easy & Nov 4 & & \\
+\href{https://www.deep-ml.com/problems/121}{121. Vector Element-wise Sum} & Easy & Nov 4 & & \\
+\href{https://www.deep-ml.com/problems/1022}{1022. L2 Normalization Along an Axis} & Easy & Nov 6 & & \\
+\href{https://www.deep-ml.com/problems/10}{10. Calculate Covariance Matrix} & Easy & Nov 6 & & \\
+\href{https://www.deep-ml.com/problems/16}{16. Feature Scaling Implementation} & Easy & Nov 10 & & \\
+\href{https://www.deep-ml.com/problems/29}{29. Random Shuffle of Dataset} & Easy & & & $\checkmark$ \\
+\href{https://www.deep-ml.com/problems/30}{30. Batch Iterator for Dataset} & Easy & & & $\checkmark$ \\
+\href{https://www.deep-ml.com/problems/34}{34. One-Hot Encoding of Nominal Values} & Easy & & & $\checkmark$ \\
 
-\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{2. PyTorch Fundamentals (Week 2)}} \\
-\href{https://www.deep-ml.com/problems/1220}{1220. Create and Inspect a Tensor} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1221}{1221. Reshape and Transpose a Tensor} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1222}{1222. Gradient of a Square with Autograd} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1218}{1218. Count Parameters of a Sequential Model} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1224}{1224. Single Linear Neuron Forward} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1226}{1226. Implement ReLU and Leaky ReLU} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1228}{1228. Mean Squared Error from Scratch} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1234}{1234. One SGD Update Step} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1237}{1237. Batch a TensorDataset with DataLoader} & Easy & & \\
-\href{https://www.deep-ml.com/problems/1232}{1232. Conv2d Output Shape} & Easy & & \\
+\rowcolor{gray!20} \multicolumn{5}{l}{\textbf{2. PyTorch Fundamentals (Weeks 2--3)}} \\
+\href{https://www.deep-ml.com/problems/1220}{1220. Create and Inspect a Tensor} & Easy & Nov 12 & & \\
+\href{https://www.deep-ml.com/problems/1221}{1221. Reshape and Transpose a Tensor} & Easy & Nov 12 & & \\
+\href{https://www.deep-ml.com/problems/1222}{1222. Gradient of a Square with Autograd} & Easy & Nov 14 & & \\
+\href{https://www.deep-ml.com/problems/1218}{1218. Count Parameters of a Sequential Model} & Easy & Nov 14 & & \\
+\href{https://www.deep-ml.com/problems/1224}{1224. Single Linear Neuron Forward} & Easy & Nov 18 & & \\
+\href{https://www.deep-ml.com/problems/1226}{1226. Implement ReLU and Leaky ReLU} & Easy & Nov 18 & & \\
+\href{https://www.deep-ml.com/problems/1228}{1228. Mean Squared Error from Scratch} & Easy & Nov 20 & & \\
+\href{https://www.deep-ml.com/problems/1234}{1234. One SGD Update Step} & Easy & Nov 20 & & \\
+\href{https://www.deep-ml.com/problems/1237}{1237. Batch a TensorDataset with DataLoader} & Easy & Nov 24 & & \\
+\href{https://www.deep-ml.com/problems/1232}{1232. Conv2d Output Shape} & Easy & Nov 24 & & \\
 
-\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{3. Machine Learning (NumPy $+$ PyTorch)}} \\
-\href{https://www.deep-ml.com/problems/14}{14. Linear Regression Using Normal Equation} & Easy & & \\
-\href{https://www.deep-ml.com/problems/15}{15. Linear Regression Using Gradient Descent} & Easy & & \\
-\href{https://www.deep-ml.com/problems/135}{135. Implement Early Stopping Based on Validation Loss} & Easy & & \\
-\href{https://www.deep-ml.com/problems/17}{17. K-Means Clustering} & Medium & & \\
-\href{https://www.deep-ml.com/problems/18}{18. Implement K-Fold Cross-Validation} & Medium & & \\
-\href{https://www.deep-ml.com/problems/19}{19. Principal Component Analysis (PCA) Implementation} & Medium & & \\
-\href{https://www.deep-ml.com/problems/173}{173. Implement K-Nearest Neighbors} & Medium & & \\
+\rowcolor{gray!20} \multicolumn{5}{l}{\textbf{3. Machine Learning}} \\
+\href{https://www.deep-ml.com/problems/14}{14. Linear Regression Using Normal Equation} & Easy & Nov 26 & & \\
+\href{https://www.deep-ml.com/problems/15}{15. Linear Regression Using Gradient Descent} & Easy & Nov 26 & & \\
+\href{https://www.deep-ml.com/problems/135}{135. Implement Early Stopping Based on Validation Loss} & Easy & Nov 28 & & \\
+\href{https://www.deep-ml.com/problems/138}{138. Find the Best Gini-Based Split for a Decision Tree} & Medium & Nov 28 & & \\
+\href{https://www.deep-ml.com/problems/17}{17. K-Means Clustering} & Medium & Dec 2 & & \\
+\href{https://www.deep-ml.com/problems/140}{140. Bernoulli Naive Bayes Classifier} & Medium & Dec 2 & & \\
+\href{https://www.deep-ml.com/problems/18}{18. Implement K-Fold Cross-Validation} & Medium & Dec 4 & & \\
+\href{https://www.deep-ml.com/problems/192}{192. Implement the Huber Loss Function} & Medium & Dec 4 & & \\
+\href{https://www.deep-ml.com/problems/19}{19. Principal Component Analysis (PCA) Implementation} & Medium & Dec 8 & & \\
+\href{https://www.deep-ml.com/problems/173}{173. Implement K-Nearest Neighbors} & Medium & Dec 8 & & \\
+
+\rowcolor{gray!20} \multicolumn{5}{l}{\textbf{4. Deep Learning}} \\
+\href{https://www.deep-ml.com/problems/134}{134. Compute Multi-class Cross-Entropy Loss} & Easy & Dec 10 & & \\
+\href{https://www.deep-ml.com/problems/147}{147. GeLU Activation Function} & Easy & Dec 10 & & \\
+\href{https://www.deep-ml.com/problems/114}{114. Implement Global Average Pooling} & Easy & Dec 12 & & \\
+\href{https://www.deep-ml.com/problems/113}{113. Implement a Simple Residual Block with Shortcut Connection} & Easy & Dec 12 & & \\
+\href{https://www.deep-ml.com/problems/146}{146. Momentum Optimizer} & Easy & Dec 16 & & \\
+\href{https://www.deep-ml.com/problems/145}{145. Adagrad Optimizer} & Easy & Dec 16 & & \\
+\href{https://www.deep-ml.com/problems/115}{115. Implement Batch Normalization for BCHW Input} & Medium & Dec 18 & & \\
+\href{https://www.deep-ml.com/problems/151}{151. Dropout Layer} & Medium & Dec 18 & & \\
+\href{https://www.deep-ml.com/problems/109}{109. Implement Layer Normalization for Sequence Data} & Medium & Dec 22 & & \\
+\href{https://www.deep-ml.com/problems/107}{107. Implement Masked Self-Attention} & Medium & Dec 22 & & \\
+
+\rowcolor{gray!20} \multicolumn{5}{l}{\textbf{5. Reinforcement Learning}} \\
+\href{https://www.deep-ml.com/problems/159}{159. Incremental Mean for Online Reward Estimation} & Easy & Dec 24 & & \\
+\href{https://www.deep-ml.com/problems/161}{161. Exponential Weighted Average of Rewards} & Easy & Dec 24 & & \\
+\href{https://www.deep-ml.com/problems/162}{162. Upper Confidence Bound (UCB) Action Selection} & Easy & Dec 26 & & \\
+\href{https://www.deep-ml.com/problems/165}{165. Compute Discounted Return} & Easy & Dec 26 & & \\
+\href{https://www.deep-ml.com/problems/167}{167. Calculate the Discounted Return for a Given Trajectory} & Easy & Dec 30 & & \\
+\href{https://www.deep-ml.com/problems/158}{158. Epsilon-Greedy Action Selection for n-Armed Bandit} & Medium & Dec 30 & & \\
+\href{https://www.deep-ml.com/problems/133}{133. Implement Q-Learning Algorithm for MDPs} & Medium & Jan 5 & & \\
+\href{https://www.deep-ml.com/problems/157}{157. Implement the Bellman Equation for Value Iteration} & Medium & Jan 5 & & \\
+\href{https://www.deep-ml.com/problems/142}{142. Gridworld Policy Evaluation} & Medium & Jan 7 & & \\
+\href{https://www.deep-ml.com/problems/175}{175. Implement the SARSA Algorithm on Policy} & Medium & Jan 7 & & \\
 
 \end{longtable}
 
