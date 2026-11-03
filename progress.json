@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T03:28:25.747Z",
+  "generated_at": "2026-11-03T03:07:12.670Z",
   "items": {
     "problem:337": {
       "kind": "problem",
@@ -154,6 +154,45 @@
       "path": "problems/0336-compute-posterior-probability-using-bayes-theorem",
       "first_solved_at": "2026-11-02T03:28:25.129Z",
       "last_pushed_at": "2026-11-02T03:28:25.129Z",
+      "language": "python",
+      "lines": 15
+    },
+    "problem:29": {
+      "kind": "problem",
+      "id": "29",
+      "title": "Random Shuffle of Dataset",
+      "difficulty": "easy",
+      "category": "Machine Learning",
+      "url": "https://www.deep-ml.com/problems/29",
+      "path": "problems/0029-random-shuffle-of-dataset",
+      "first_solved_at": "2026-11-03T02:18:45.924Z",
+      "last_pushed_at": "2026-11-03T02:18:45.924Z",
+      "language": "python",
+      "lines": 7
+    },
+    "problem:30": {
+      "kind": "problem",
+      "id": "30",
+      "title": "Batch Iterator for Dataset",
+      "difficulty": "easy",
+      "category": "Machine Learning",
+      "url": "https://www.deep-ml.com/problems/30",
+      "path": "problems/0030-batch-iterator-for-dataset",
+      "first_solved_at": "2026-11-03T02:33:22.197Z",
+      "last_pushed_at": "2026-11-03T02:33:22.197Z",
+      "language": "python",
+      "lines": 16
+    },
+    "problem:34": {
+      "kind": "problem",
+      "id": "34",
+      "title": "One-Hot Encoding of Nominal Values",
+      "difficulty": "easy",
+      "category": "Machine Learning",
+      "url": "https://www.deep-ml.com/problems/34",
+      "path": "problems/0034-one-hot-encoding-of-nominal-values",
+      "first_solved_at": "2026-11-03T03:07:12.043Z",
+      "last_pushed_at": "2026-11-03T03:07:12.043Z",
       "language": "python",
       "lines": 15
     }
