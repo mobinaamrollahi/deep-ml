@@ -198,6 +198,8 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
     \item \texttt{np.random.choice(elements, p=probabilities)} picks from a numpy array based on specific probabilities.
     \item \texttt{np.random.seed(seed)} sets the random seed for the purpose of reproducibility.
+    \item Draw the permutation of the n = X.shape[0] row indices with np.random.permutation(n)
+    \item \texttt{is None} or \texttt{is not None} are the correct ways to check whether the input of an array is None or not!
 \end{itemize}
 
 \section{Machine Learning}
@@ -217,5 +219,6 @@ The Naive Bayes classifier relies on the naive assumption that features are inde
     \hat{y} = \operatorname*{argmax}_{1 \leq k \leq K} p(C_k) \prod_{i=1}^{n} p(x_i \mid C_k).
 \end{equation}
 
+\paragraph{Laplace Smoothing in Naive Bayes}
 
 \end{document}
