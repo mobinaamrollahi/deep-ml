@@ -217,6 +217,7 @@ The Naive Bayes classifier relies on the naive assumption that features are inde
     \hat{y} = \operatorname*{argmax}_{1 \leq k \leq K} p(C_k) \prod_{i=1}^{n} p(x_i \mid C_k).
 \end{equation}
 
+\paragraph{Laplace Smoothing in Naive Bayes}
 \subsubsection{Laplace Smoothing}
 \label{subsubsec:ml:gla:laplace-smoothing}
 Laplace smoothing (additive smoothing) prevents zero-probability estimates when a feature value does not appear in the training data for a given class. For a discrete feature $x_i$ taking value $v$, the smoothed class-conditional probability is:
