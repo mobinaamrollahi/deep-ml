@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\title{Deep-ML Practice Plan}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+    \item \textbf{\texttt{arr.reshape(m, n)}} reshapes an array without copying data; pass \texttt{-1} for one dimension to let NumPy infer its size.
+
+    \item \textbf{\texttt{A @ B}} is the preferred matrix-multiplication operator; \texttt{np.dot} also works but is less readable for 2D arrays.
+
+    \item Broadcasting lets NumPy operate on arrays with compatible but different shapes; \texttt{(m,\,n) - (n,)} subtracts a row vector from every row without explicit reshaping.
+
+    \item \textbf{\texttt{np.linalg.norm(arr, axis=1, keepdims=True)}} computes a row-wise L2 norm; dividing \texttt{arr} by the result normalizes each row to unit length.
+
+    \item \textbf{\texttt{arr[mask]}} selects elements where a boolean array is \texttt{True}; useful for filtering rows by class label or applying threshold conditions.
+
+    \item \textbf{\texttt{tensor.detach().numpy()}} converts a PyTorch tensor to a NumPy array; call \texttt{.cpu()} first if the tensor lives on a GPU.
+
+    \item Always call \textbf{\texttt{optimizer.zero\_grad()}} before \textbf{\texttt{loss.backward()}}; gradients accumulate by default and will corrupt training if not cleared each step.
+
+    \item Wrap evaluation code in \textbf{\texttt{with torch.no\_grad():}} to disable the autograd engine and reduce memory usage during inference.
+
+    \item \textbf{\texttt{tensor.item()}} extracts a plain Python scalar from a single-element tensor; use it when logging losses to avoid holding the computation graph in memory.
+
+    \item Subclass \textbf{\texttt{nn.Module}}, define layers in \textbf{\texttt{\_\_init\_\_}}, and implement the forward pass in \textbf{\texttt{forward}}; PyTorch then handles parameter registration and gradient flow automatically.
+
+\end{itemize}
+
+\section{Deep-ML Practice}
+
+\begin{longtable}{p{9.5cm} l c c}
+\caption{Deep-ML practice tracker} \label{tab:deep-ml} \\
+\hline
+\textbf{Question} & \textbf{Level} & \textbf{Revisit} & \textbf{Done} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Question} & \textbf{Level} & \textbf{Revisit} & \textbf{Done} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{1. NumPy Fundamentals (Week 1)}} \\
+\href{https://www.deep-ml.com/problems/1}{1. Matrix-Vector Dot Product} & Easy & & \\
+\href{https://www.deep-ml.com/problems/121}{121. Vector Element-wise Sum} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1022}{1022. L2 Normalization Along an Axis} & Easy & & \\
+\href{https://www.deep-ml.com/problems/10}{10. Calculate Covariance Matrix} & Easy & & \\
+\href{https://www.deep-ml.com/problems/16}{16. Feature Scaling Implementation} & Easy & & \\
+\href{https://www.deep-ml.com/problems/29}{29. Random Shuffle of Dataset} & Easy & & $\checkmark$ \\
+\href{https://www.deep-ml.com/problems/30}{30. Batch Iterator for Dataset} & Easy & & $\checkmark$ \\
+\href{https://www.deep-ml.com/problems/34}{34. One-Hot Encoding of Nominal Values} & Easy & & $\checkmark$ \\
+
+\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{2. PyTorch Fundamentals (Week 2)}} \\
+\href{https://www.deep-ml.com/problems/1220}{1220. Create and Inspect a Tensor} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1221}{1221. Reshape and Transpose a Tensor} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1222}{1222. Gradient of a Square with Autograd} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1218}{1218. Count Parameters of a Sequential Model} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1224}{1224. Single Linear Neuron Forward} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1226}{1226. Implement ReLU and Leaky ReLU} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1228}{1228. Mean Squared Error from Scratch} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1234}{1234. One SGD Update Step} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1237}{1237. Batch a TensorDataset with DataLoader} & Easy & & \\
+\href{https://www.deep-ml.com/problems/1232}{1232. Conv2d Output Shape} & Easy & & \\
+
+\rowcolor{gray!20} \multicolumn{4}{l}{\textbf{3. Machine Learning (NumPy $+$ PyTorch)}} \\
+\href{https://www.deep-ml.com/problems/14}{14. Linear Regression Using Normal Equation} & Easy & & \\
+\href{https://www.deep-ml.com/problems/15}{15. Linear Regression Using Gradient Descent} & Easy & & \\
+\href{https://www.deep-ml.com/problems/135}{135. Implement Early Stopping Based on Validation Loss} & Easy & & \\
+\href{https://www.deep-ml.com/problems/17}{17. K-Means Clustering} & Medium & & \\
+\href{https://www.deep-ml.com/problems/18}{18. Implement K-Fold Cross-Validation} & Medium & & \\
+\href{https://www.deep-ml.com/problems/19}{19. Principal Component Analysis (PCA) Implementation} & Medium & & \\
+\href{https://www.deep-ml.com/problems/173}{173. Implement K-Nearest Neighbors} & Medium & & \\
+
+\end{longtable}
+
+\end{document}
