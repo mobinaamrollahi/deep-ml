@@ -198,8 +198,8 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
     \item \texttt{np.random.choice(elements, p=probabilities)} draws samples from an array using specified probabilities.
     \item \texttt{np.random.seed(seed)} seeds the random number generator to ensure reproducible results.
-    \item Draw the permutation of the n = X.shape[0] row indices with np.random.permutation(n)
-    \item \texttt{is None} or \texttt{is not None} are the correct ways to check whether the input of an array is None or not!
+    \item \texttt{np.random.permutation(n)} randomly permutes \texttt{n} indices; e.g., \texttt{n = X.shape[0]} for rows.
+    \item \texttt{is None} and \texttt{is not None} are the correct idioms for checking whether a variable is \texttt{None}.
 \end{itemize}
 
 \section{Machine Learning}
