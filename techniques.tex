@@ -199,13 +199,16 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item \texttt{np.random.choice(elements, p=probabilities)} draws samples from an array using specified probabilities.
     \item \texttt{np.random.seed(seed)} seeds the random number generator to ensure reproducible results.
     \item \texttt{np.random.permutation(n)} randomly permutes \texttt{n} indices; e.g., \texttt{n = X.shape[0]} for rows.
-    \item \texttt{is None} and \texttt{is not None} are the correct idioms for checking whether a variable is \texttt{None}.
+    \item Use \texttt{is None} and \texttt{is not None} to check whether a variable is \texttt{None}.
     \item If \texttt{a} and \texttt{b} are two NumPy arrays, \texttt{a + b} computes the element-wise sum.
     \item \texttt{np.sum(arr, axis=k)} sums \texttt{arr} along axis \texttt{k}; omit \texttt{axis} to sum all elements.
     \item \texttt{np.sqrt(arr)} applies element-wise square root; negative inputs yield \texttt{nan}.
-    \item \texttt{arr.min()}, \texttt{arr.max()}, \texttt{arr.std()}, and \texttt{arr.mean()} reduce over \texttt{axis=0} (column-wise) or \texttt{axis=1} (row-wise).
-    \item np.reshapre(a, new_size) would reshape an array a into the newshape wihtout altering a, and new shape can be an integer or a touple.
-    \item np.cov(a) will return the covariance of the matrix a_{m \times n} with m features, and n obsevration for each feature. The result is a m by m matrix.
+    \item \texttt{arr.min()}, \texttt{arr.max()}, \texttt{arr.std()}, and \texttt{arr.mean()} reduce over all elements.
+    \item Give those reductions \texttt{axis=0} for a column-wise result, or \texttt{axis=1} for a row-wise result.
+    \item \texttt{np.reshape(a, shape)} returns \texttt{a} reshaped without altering it; \texttt{shape} is int or tuple.
+    \item One entry of \texttt{shape} may be \texttt{-1}, and NumPy infers it from the array size.
+    \item \texttt{np.cov(a)} treats each row of \texttt{a} as a variable, so an $m \times n$ input gives $m \times m$.
+    \item \texttt{np.cov} normalizes by $n-1$; use \texttt{bias=True} for $n$, \texttt{rowvar=False} for columns.
 \end{itemize}
 
 \section{Machine Learning}
