@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T03:17:32.628Z",
+  "generated_at": "2026-11-07T23:45:08.833Z",
   "items": {
     "problem:337": {
       "kind": "problem",
@@ -247,6 +247,58 @@
       "last_pushed_at": "2026-11-05T03:17:32.004Z",
       "language": "python",
       "lines": 10
+    },
+    "problem:10": {
+      "kind": "problem",
+      "id": "10",
+      "title": "Calculate Covariance Matrix",
+      "difficulty": "easy",
+      "category": "Statistics",
+      "url": "https://www.deep-ml.com/problems/10",
+      "path": "problems/0010-calculate-covariance-matrix",
+      "first_solved_at": "2026-11-07T02:47:01.425Z",
+      "last_pushed_at": "2026-11-07T23:38:26.474Z",
+      "language": "python",
+      "lines": 11
+    },
+    "problem:2": {
+      "kind": "problem",
+      "id": "2",
+      "title": "Transpose of a Matrix",
+      "difficulty": "easy",
+      "category": "Linear Algebra",
+      "url": "https://www.deep-ml.com/problems/2",
+      "path": "problems/0002-transpose-of-a-matrix",
+      "first_solved_at": "2026-11-07T02:50:12.968Z",
+      "last_pushed_at": "2026-11-07T02:50:12.968Z",
+      "language": "python",
+      "lines": 18
+    },
+    "problem:3": {
+      "kind": "problem",
+      "id": "3",
+      "title": "Reshape Matrix",
+      "difficulty": "easy",
+      "category": "Linear Algebra",
+      "url": "https://www.deep-ml.com/problems/3",
+      "path": "problems/0003-reshape-matrix",
+      "first_solved_at": "2026-11-07T03:01:47.959Z",
+      "last_pushed_at": "2026-11-07T23:45:08.295Z",
+      "language": "python",
+      "lines": 10
+    },
+    "problem:4": {
+      "kind": "problem",
+      "id": "4",
+      "title": "Calculate Mean by Row or Column",
+      "difficulty": "easy",
+      "category": "Linear Algebra",
+      "url": "https://www.deep-ml.com/problems/4",
+      "path": "problems/0004-calculate-mean-by-row-or-column",
+      "first_solved_at": "2026-11-07T23:41:17.176Z",
+      "last_pushed_at": "2026-11-07T23:41:17.176Z",
+      "language": "python",
+      "lines": 14
     }
   }
 }

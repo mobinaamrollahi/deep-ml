@@ -1,0 +1,18 @@
+def transpose_matrix(a: list[list[int|float]]) -> list[list[int|float]]:
+    """
+    Transpose a 2D matrix by swapping rows and columns.
+    
+    Args:
+        a: A 2D matrix of shape (m, n)
+    
+    Returns:
+        The transposed matrix of shape (n, m)
+    """
+    r = len(a)
+    c = len(a[0])
+    output = [[0.0] * r for _ in range(c)] 
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            output[j][i] = a[i][j]
+
+    return output
