@@ -13,15 +13,19 @@
 \maketitle
 
 \begin{itemize}
-    \item \textbf{\texttt{arr.reshape(m, n)}} reshapes an array without copying data; pass \texttt{-1} for one dimension to let NumPy infer its size.
+    \item \textbf{\texttt{arr.reshape(m, n)}} reshapes without copying; pass \texttt{-1} for one dimension to infer it.
 
-    \item \textbf{\texttt{A @ B}} is the preferred matrix-multiplication operator; \texttt{np.dot} also works but is less readable for 2D arrays.
+    \item \textbf{\texttt{A @ B}} is the preferred matrix-multiplication operator; \texttt{np.dot} reads worse for 2D.
 
-    \item Broadcasting lets NumPy operate on arrays with compatible but different shapes; \texttt{(m,\,n) - (n,)} subtracts a row vector from every row without explicit reshaping.
+    \item Broadcasting aligns compatible shapes: \texttt{(m,\,n) - (n,)} subtracts a row vector from every row.
 
-    \item \textbf{\texttt{np.linalg.norm(arr, axis=1, keepdims=True)}} computes row-wise L2 norms; dividing \texttt{arr} by the result normalizes each row to unit length.
+    \item \textbf{\texttt{np.linalg.norm(arr, axis=1, keepdims=True)}} gives row L2 norms; divide \texttt{arr} by it.
 
-    \item \textbf{\texttt{arr[mask]}} selects elements where a boolean array is \texttt{True}; useful for filtering rows by class label or applying threshold conditions.
+    \item \textbf{\texttt{arr[mask]}} selects elements where a boolean array is \texttt{True}; filters rows by a test.
+
+    \item \textbf{\texttt{np.quantile(arr, q)}} returns the q-th quantile; \texttt{np.percentile} takes 0--100 instead.
+
+    \item \textbf{\texttt{np.concatenate([a, b], axis=0)}} joins along an existing axis; \texttt{np.stack} adds one.
 
     \item \textbf{\texttt{tensor.detach().numpy()}} converts a PyTorch tensor to a NumPy array; call \texttt{.cpu()} first if the tensor lives on a GPU.
 
@@ -66,18 +70,20 @@
 \href{https://www.deep-ml.com/problems/29}{29. Random Shuffle of Dataset} & Easy & & & $\checkmark$ \\
 \href{https://www.deep-ml.com/problems/30}{30. Batch Iterator for Dataset} & Easy & & & $\checkmark$ \\
 \href{https://www.deep-ml.com/problems/34}{34. One-Hot Encoding of Nominal Values} & Easy & & & $\checkmark$ \\
+\href{https://www.deep-ml.com/problems/293}{293. Calculate P50/P95/P99 Latency Percentiles} & Easy & Nov 12 & & \\
+\href{https://www.deep-ml.com/problems/1276}{1276. Tensor Puzzle: Stack Two Vectors as Rows} & Easy & Nov 12 & & \\
 
 \rowcolor{gray!20} \multicolumn{5}{l}{\textbf{2. PyTorch Fundamentals (Weeks 2--3)}} \\
-\href{https://www.deep-ml.com/problems/1220}{1220. Create and Inspect a Tensor} & Easy & Nov 12 & & \\
-\href{https://www.deep-ml.com/problems/1221}{1221. Reshape and Transpose a Tensor} & Easy & Nov 12 & & \\
-\href{https://www.deep-ml.com/problems/1222}{1222. Gradient of a Square with Autograd} & Easy & Nov 14 & & \\
-\href{https://www.deep-ml.com/problems/1218}{1218. Count Parameters of a Sequential Model} & Easy & Nov 14 & & \\
-\href{https://www.deep-ml.com/problems/1224}{1224. Single Linear Neuron Forward} & Easy & Nov 18 & & \\
-\href{https://www.deep-ml.com/problems/1226}{1226. Implement ReLU and Leaky ReLU} & Easy & Nov 18 & & \\
-\href{https://www.deep-ml.com/problems/1228}{1228. Mean Squared Error from Scratch} & Easy & Nov 20 & & \\
-\href{https://www.deep-ml.com/problems/1234}{1234. One SGD Update Step} & Easy & Nov 20 & & \\
-\href{https://www.deep-ml.com/problems/1237}{1237. Batch a TensorDataset with DataLoader} & Easy & Nov 24 & & \\
-\href{https://www.deep-ml.com/problems/1232}{1232. Conv2d Output Shape} & Easy & Nov 24 & & \\
+\href{https://www.deep-ml.com/problems/1220}{1220. Create and Inspect a Tensor} & Easy & Nov 14 & & \\
+\href{https://www.deep-ml.com/problems/1221}{1221. Reshape and Transpose a Tensor} & Easy & Nov 14 & & \\
+\href{https://www.deep-ml.com/problems/1222}{1222. Gradient of a Square with Autograd} & Easy & Nov 18 & & \\
+\href{https://www.deep-ml.com/problems/1218}{1218. Count Parameters of a Sequential Model} & Easy & Nov 18 & & \\
+\href{https://www.deep-ml.com/problems/1224}{1224. Single Linear Neuron Forward} & Easy & Nov 20 & & \\
+\href{https://www.deep-ml.com/problems/1226}{1226. Implement ReLU and Leaky ReLU} & Easy & Nov 20 & & \\
+\href{https://www.deep-ml.com/problems/1228}{1228. Mean Squared Error from Scratch} & Easy & Nov 24 & & \\
+\href{https://www.deep-ml.com/problems/1234}{1234. One SGD Update Step} & Easy & Nov 24 & & \\
+\href{https://www.deep-ml.com/problems/1237}{1237. Batch a TensorDataset with DataLoader} & Easy & Nov 26 & & \\
+\href{https://www.deep-ml.com/problems/1232}{1232. Conv2d Output Shape} & Easy & Nov 26 & & \\
 
 \rowcolor{gray!20} \multicolumn{5}{l}{\textbf{3. SQL}} \\
 \href{https://www.deep-ml.com/problems/1107}{1107. Count rows per group} & Easy & & & \\
@@ -96,44 +102,44 @@
 \href{https://www.deep-ml.com/problems/1119}{1119. Cohort Retention: First Login and Consecutive-Day Logins} & Hard & & & \\
 
 \rowcolor{gray!20} \multicolumn{5}{l}{\textbf{4. Machine Learning}} \\
-\href{https://www.deep-ml.com/problems/14}{14. Linear Regression Using Normal Equation} & Easy & Nov 26 & & \\
-\href{https://www.deep-ml.com/problems/15}{15. Linear Regression Using Gradient Descent} & Easy & Nov 26 & & \\
-\href{https://www.deep-ml.com/problems/135}{135. Implement Early Stopping Based on Validation Loss} & Easy & Nov 28 & & \\
-\href{https://www.deep-ml.com/problems/138}{138. Find the Best Gini-Based Split for a Decision Tree} & Medium & Nov 28 & & \\
-\href{https://www.deep-ml.com/problems/17}{17. K-Means Clustering} & Medium & Dec 2 & & \\
-\href{https://www.deep-ml.com/problems/140}{140. Bernoulli Naive Bayes Classifier} & Medium & Dec 2 & & \\
-\href{https://www.deep-ml.com/problems/18}{18. Implement K-Fold Cross-Validation} & Medium & Dec 4 & & \\
-\href{https://www.deep-ml.com/problems/192}{192. Implement the Huber Loss Function} & Medium & Dec 4 & & \\
-\href{https://www.deep-ml.com/problems/19}{19. Principal Component Analysis (PCA) Implementation} & Medium & Dec 8 & & \\
-\href{https://www.deep-ml.com/problems/173}{173. Implement K-Nearest Neighbors} & Medium & Dec 8 & & \\
-\href{https://www.deep-ml.com/problems/282}{282. Calculate SVM Margin Width} & Easy & Dec 9 & & \\
-\href{https://www.deep-ml.com/problems/283}{283. Implement Hinge Loss for SVM} & Easy & Dec 9 & & \\
-\href{https://www.deep-ml.com/problems/814}{814. SVM Dual Formulation via Coordinate Descent} & Medium & Dec 11 & & \\
-\href{https://www.deep-ml.com/problems/831}{831. One-Class SVM for Anomaly Detection} & Medium & Dec 11 & & \\
+\href{https://www.deep-ml.com/problems/14}{14. Linear Regression Using Normal Equation} & Easy & Nov 28 & & \\
+\href{https://www.deep-ml.com/problems/15}{15. Linear Regression Using Gradient Descent} & Easy & Nov 28 & & \\
+\href{https://www.deep-ml.com/problems/135}{135. Implement Early Stopping Based on Validation Loss} & Easy & Dec 2 & & \\
+\href{https://www.deep-ml.com/problems/138}{138. Find the Best Gini-Based Split for a Decision Tree} & Medium & Dec 2 & & \\
+\href{https://www.deep-ml.com/problems/17}{17. K-Means Clustering} & Medium & Dec 4 & & \\
+\href{https://www.deep-ml.com/problems/140}{140. Bernoulli Naive Bayes Classifier} & Medium & Dec 4 & & \\
+\href{https://www.deep-ml.com/problems/18}{18. Implement K-Fold Cross-Validation} & Medium & Dec 8 & & \\
+\href{https://www.deep-ml.com/problems/192}{192. Implement the Huber Loss Function} & Medium & Dec 8 & & \\
+\href{https://www.deep-ml.com/problems/19}{19. Principal Component Analysis (PCA) Implementation} & Medium & Dec 9 & & \\
+\href{https://www.deep-ml.com/problems/173}{173. Implement K-Nearest Neighbors} & Medium & Dec 9 & & \\
+\href{https://www.deep-ml.com/problems/282}{282. Calculate SVM Margin Width} & Easy & Dec 11 & & \\
+\href{https://www.deep-ml.com/problems/283}{283. Implement Hinge Loss for SVM} & Easy & Dec 11 & & \\
+\href{https://www.deep-ml.com/problems/814}{814. SVM Dual Formulation via Coordinate Descent} & Medium & Dec 12 & & \\
+\href{https://www.deep-ml.com/problems/831}{831. One-Class SVM for Anomaly Detection} & Medium & Dec 12 & & \\
 
 \rowcolor{gray!20} \multicolumn{5}{l}{\textbf{5. Deep Learning}} \\
-\href{https://www.deep-ml.com/problems/134}{134. Compute Multi-class Cross-Entropy Loss} & Easy & Dec 12 & & \\
-\href{https://www.deep-ml.com/problems/147}{147. GeLU Activation Function} & Easy & Dec 12 & & \\
-\href{https://www.deep-ml.com/problems/114}{114. Implement Global Average Pooling} & Easy & Dec 14 & & \\
-\href{https://www.deep-ml.com/problems/113}{113. Implement a Simple Residual Block with Shortcut Connection} & Easy & Dec 14 & & \\
-\href{https://www.deep-ml.com/problems/146}{146. Momentum Optimizer} & Easy & Dec 16 & & \\
-\href{https://www.deep-ml.com/problems/145}{145. Adagrad Optimizer} & Easy & Dec 16 & & \\
-\href{https://www.deep-ml.com/problems/115}{115. Implement Batch Normalization for BCHW Input} & Medium & Dec 18 & & \\
-\href{https://www.deep-ml.com/problems/151}{151. Dropout Layer} & Medium & Dec 18 & & \\
-\href{https://www.deep-ml.com/problems/109}{109. Implement Layer Normalization for Sequence Data} & Medium & Dec 22 & & \\
-\href{https://www.deep-ml.com/problems/107}{107. Implement Masked Self-Attention} & Medium & Dec 22 & & \\
+\href{https://www.deep-ml.com/problems/134}{134. Compute Multi-class Cross-Entropy Loss} & Easy & Dec 14 & & \\
+\href{https://www.deep-ml.com/problems/147}{147. GeLU Activation Function} & Easy & Dec 14 & & \\
+\href{https://www.deep-ml.com/problems/114}{114. Implement Global Average Pooling} & Easy & Dec 16 & & \\
+\href{https://www.deep-ml.com/problems/113}{113. Implement a Simple Residual Block with Shortcut Connection} & Easy & Dec 16 & & \\
+\href{https://www.deep-ml.com/problems/146}{146. Momentum Optimizer} & Easy & Dec 18 & & \\
+\href{https://www.deep-ml.com/problems/145}{145. Adagrad Optimizer} & Easy & Dec 18 & & \\
+\href{https://www.deep-ml.com/problems/115}{115. Implement Batch Normalization for BCHW Input} & Medium & Dec 22 & & \\
+\href{https://www.deep-ml.com/problems/151}{151. Dropout Layer} & Medium & Dec 22 & & \\
+\href{https://www.deep-ml.com/problems/109}{109. Implement Layer Normalization for Sequence Data} & Medium & Dec 24 & & \\
+\href{https://www.deep-ml.com/problems/107}{107. Implement Masked Self-Attention} & Medium & Dec 24 & & \\
 
 \rowcolor{gray!20} \multicolumn{5}{l}{\textbf{6. Reinforcement Learning}} \\
-\href{https://www.deep-ml.com/problems/159}{159. Incremental Mean for Online Reward Estimation} & Easy & Dec 24 & & \\
-\href{https://www.deep-ml.com/problems/161}{161. Exponential Weighted Average of Rewards} & Easy & Dec 24 & & \\
-\href{https://www.deep-ml.com/problems/162}{162. Upper Confidence Bound (UCB) Action Selection} & Easy & Dec 26 & & \\
-\href{https://www.deep-ml.com/problems/165}{165. Compute Discounted Return} & Easy & Dec 26 & & \\
-\href{https://www.deep-ml.com/problems/167}{167. Calculate the Discounted Return for a Given Trajectory} & Easy & Dec 30 & & \\
-\href{https://www.deep-ml.com/problems/158}{158. Epsilon-Greedy Action Selection for n-Armed Bandit} & Medium & Dec 30 & & \\
-\href{https://www.deep-ml.com/problems/133}{133. Implement Q-Learning Algorithm for MDPs} & Medium & Jan 5 & & \\
-\href{https://www.deep-ml.com/problems/157}{157. Implement the Bellman Equation for Value Iteration} & Medium & Jan 5 & & \\
-\href{https://www.deep-ml.com/problems/142}{142. Gridworld Policy Evaluation} & Medium & Jan 7 & & \\
-\href{https://www.deep-ml.com/problems/175}{175. Implement the SARSA Algorithm on Policy} & Medium & Jan 7 & & \\
+\href{https://www.deep-ml.com/problems/159}{159. Incremental Mean for Online Reward Estimation} & Easy & Dec 26 & & \\
+\href{https://www.deep-ml.com/problems/161}{161. Exponential Weighted Average of Rewards} & Easy & Dec 26 & & \\
+\href{https://www.deep-ml.com/problems/162}{162. Upper Confidence Bound (UCB) Action Selection} & Easy & Dec 30 & & \\
+\href{https://www.deep-ml.com/problems/165}{165. Compute Discounted Return} & Easy & Dec 30 & & \\
+\href{https://www.deep-ml.com/problems/167}{167. Calculate the Discounted Return for a Given Trajectory} & Easy & Jan 5 & & \\
+\href{https://www.deep-ml.com/problems/158}{158. Epsilon-Greedy Action Selection for n-Armed Bandit} & Medium & Jan 5 & & \\
+\href{https://www.deep-ml.com/problems/133}{133. Implement Q-Learning Algorithm for MDPs} & Medium & Jan 7 & & \\
+\href{https://www.deep-ml.com/problems/157}{157. Implement the Bellman Equation for Value Iteration} & Medium & Jan 7 & & \\
+\href{https://www.deep-ml.com/problems/142}{142. Gridworld Policy Evaluation} & Medium & Jan 9 & & \\
+\href{https://www.deep-ml.com/problems/175}{175. Implement the SARSA Algorithm on Policy} & Medium & Jan 9 & & \\
 
 \end{longtable}
 
