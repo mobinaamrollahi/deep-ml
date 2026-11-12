@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T16:57:32.309Z",
+  "generated_at": "2026-11-12T17:11:28.817Z",
   "items": {
     "problem:337": {
       "kind": "problem",
@@ -312,6 +312,19 @@
       "last_pushed_at": "2026-11-12T16:57:31.617Z",
       "language": "python",
       "lines": 7
+    },
+    "problem:293": {
+      "kind": "problem",
+      "id": "293",
+      "title": "Calculate P50/P95/P99 Latency Percentiles",
+      "difficulty": "easy",
+      "category": "Statistics",
+      "url": "https://www.deep-ml.com/problems/293",
+      "path": "problems/0293-calculate-p50-p95-p99-latency-percentiles",
+      "first_solved_at": "2026-11-12T17:11:28.109Z",
+      "last_pushed_at": "2026-11-12T17:11:28.109Z",
+      "language": "python",
+      "lines": 19
     }
   }
 }
