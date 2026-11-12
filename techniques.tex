@@ -209,8 +209,8 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item One entry of \texttt{shape} may be \texttt{-1}, and NumPy infers it from the array size.
     \item \texttt{np.cov(a)} treats each row of \texttt{a} as a variable, so an $m \times n$ input gives $m \times m$.
     \item \texttt{np.cov} normalizes by $n-1$; use \texttt{bias=True} for $n$, \texttt{rowvar=False} for columns.
-    \item \texttt{np.where(mask, a, b)} picks a where mask is \texttt{True} and b where mask is \texttt{False.}
-    \item \texttt{np.percentile(a, q)} returns the value which q percent of the values of a are less than that. 
+    \item \texttt{np.where(mask, a, b)} picks a where mask is \texttt{True} and b where mask is \texttt{False}.
+    \item \texttt{np.percentile(a, q)} returns the value below which q percent of the values in a fall.
 \end{itemize}
 
 \section{Machine Learning}
