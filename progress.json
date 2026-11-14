@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T22:36:38.087Z",
+  "generated_at": "2026-11-14T22:43:39.943Z",
   "items": {
     "problem:337": {
       "kind": "problem",
@@ -452,9 +452,9 @@
       "url": "https://www.deep-ml.com/problems/1272",
       "path": "problems/1272-tensor-puzzle-identity-matrix-from-comparisons",
       "first_solved_at": "2026-11-14T22:36:37.447Z",
-      "last_pushed_at": "2026-11-14T22:36:37.447Z",
+      "last_pushed_at": "2026-11-14T22:43:39.286Z",
       "language": "python",
-      "lines": 10
+      "lines": 8
     }
   }
 }
