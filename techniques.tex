@@ -191,6 +191,15 @@ This document covers machine learning techniques explored in the deep-ml problem
 \subsection{Transformation Matrices}
 \label{subsec:linear-algebra:transformation-matrices}
 
+\subsection{Cosine Similarity}
+\label{subsec:linear-algebra:cosine-similarity}
+\begin{equation}
+    \label{eq:cosine-similarity}
+    \texttt{Cosine Similarity}(A, B) = \frac{A.B}{||A||||B||}
+\end{equation}
+
+\subsection{Linear Independence}
+To check the linear independance of a matrix A, if that matrix is a square matrix, we can simply calculate whether the determinante is zero or not. If the matrix in rectnaguale, we can also check if the rank of the matrix is equal to the number of vectors.
 \section{Numpy}
 \label{sec:numpy}
 
@@ -212,6 +221,14 @@ This document covers machine learning techniques explored in the deep-ml problem
     \item \texttt{np.where(mask, a, b)} picks a where mask is \texttt{True} and b where mask is \texttt{False}.
     \item \texttt{np.percentile(a, q)} returns the value below which q percent of the values in a fall.
     \item \texttt{np.dot(a, b)} returns the dot product; \texttt{np.cross(a, b)} returns the cross product.
+    \item \texttt{np.asarray(arr, dtype=float)} returns the arr as numpy array while treating its neteries as float.
+    \item \texttt{np.diag} returns an array as a diagnoal matrix.
+    \item \texttt{np.linalg.norm(v1)} calculates the euclidean norm of vector v1
+    \item \texttt{np.trace{matrix}} brings back the trace of a square matrix which is the sum of all the elements on the diagonal.
+    \item \texttt{np.linalg.det(matrix)} brings back the determinent of the matrix.
+    \item \texttt{arr = np.ravel(arr)} stretches a 2d matrix in a giant vecotr. 
+    \item \texttt{fancy indexing} is a term that we given numpy array a and the index array of integers idx. a[idx] return the reorientation of elements of a with respect to idx.
+    \item \texttt{np.arrange} 's use rule of thumb is whenever you're trying to apply a certain rule to every element of an array where that rule only depends on the index of the array itself, and not other elements. Essentionally, when a[idx] = f(i).
 \end{itemize}
 
 \section{Machine Learning}
