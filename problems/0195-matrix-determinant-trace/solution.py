@@ -11,9 +11,5 @@ def matrix_determinant_and_trace(matrix: list[list[float]]) -> tuple[float, floa
     """
     matrix = np.asarray(matrix, dtype=float)
     det_matrix = np.linalg.det(matrix)
-    n = matrix.shape[0]
-    trace = 0
-    for i in range(n):
-        trace += matrix[i][i]
     
-    return det_matrix, trace
+    return np.linalg.det(matrix), np.trace(matrix)
