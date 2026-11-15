@@ -107,7 +107,7 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{para:prob-stat:dist:poiss:cdf}
 \begin{equation}
     \label{eq:poiss-cdf}
-    e^{-\lambda} \sum_{j=0}^{\lfloor k \rfloor} \frac{\lambda^j}{j!}
+    F(k; \lambda) = P(X \leq k) = e^{-\lambda} \sum_{j=0}^{\lfloor k \rfloor} \frac{\lambda^j}{j!}
 \end{equation}
 
 \paragraph{Mean}
@@ -195,40 +195,42 @@ This document covers machine learning techniques explored in the deep-ml problem
 \label{subsec:linear-algebra:cosine-similarity}
 \begin{equation}
     \label{eq:cosine-similarity}
-    \texttt{Cosine Similarity}(A, B) = \frac{A.B}{||A||||B||}
+    \text{cosine similarity}(A, B) = \frac{A \cdot B}{\lVert A \rVert \, \lVert B \rVert}
 \end{equation}
 
 \subsection{Linear Independence}
-To check the linear independance of a matrix A, if that matrix is a square matrix, we can simply calculate whether the determinante is zero or not. If the matrix in rectnaguale, we can also check if the rank of the matrix is equal to the number of vectors.
-\section{Numpy}
+\label{subsec:linear-algebra:linear-independence}
+To check whether a set of vectors is linearly independent, stack them into a matrix $A$. If $A$ is square, the vectors are linearly independent if and only if $\det(A) \neq 0$. If $A$ is rectangular, they are linearly independent if and only if $\operatorname{rank}(A)$ equals the number of vectors.
+
+\section{NumPy}
 \label{sec:numpy}
 
 \begin{itemize}
-    \item \texttt{np.array(lst)} turns a list into a numpy array; \texttt{arr.tolist()} turns a numpy array into a list.
+    \item \texttt{np.array(lst)} turns a list into a NumPy array; \texttt{arr.tolist()} turns a NumPy array into a list.
     \item \texttt{np.random.choice(elements, p=probabilities)} draws samples from an array using specified probabilities.
     \item \texttt{np.random.seed(seed)} seeds the random number generator to ensure reproducible results.
     \item \texttt{np.random.permutation(n)} randomly permutes \texttt{n} indices; e.g., \texttt{n = X.shape[0]} for rows.
     \item Use \texttt{is None} and \texttt{is not None} to check whether a variable is \texttt{None}.
     \item If \texttt{a} and \texttt{b} are two NumPy arrays, \texttt{a + b} computes the element-wise sum.
     \item \texttt{np.sum(arr, axis=k)} sums \texttt{arr} along axis \texttt{k}; omit \texttt{axis} to sum all elements.
-    \item \texttt{np.sqrt(arr)} applies element-wise square root; negative inputs yield \texttt{nan}.
+    \item \texttt{np.sqrt(arr)} computes the element-wise square root; negative inputs yield \texttt{nan}.
     \item \texttt{arr.min()}, \texttt{arr.max()}, \texttt{arr.std()}, and \texttt{arr.mean()} reduce over all elements.
     \item Give those reductions \texttt{axis=0} for a column-wise result, or \texttt{axis=1} for a row-wise result.
-    \item \texttt{np.reshape(a, shape)} returns \texttt{a} reshaped without altering it; \texttt{shape} is int or tuple.
+    \item \texttt{np.reshape(a, shape)} returns \texttt{a} reshaped without altering it; \texttt{shape} is an int or a tuple.
     \item One entry of \texttt{shape} may be \texttt{-1}, and NumPy infers it from the array size.
-    \item \texttt{np.cov(a)} treats each row of \texttt{a} as a variable, so an $m \times n$ input gives $m \times m$.
-    \item \texttt{np.cov} normalizes by $n-1$; use \texttt{bias=True} for $n$, \texttt{rowvar=False} for columns.
-    \item \texttt{np.where(mask, a, b)} picks a where mask is \texttt{True} and b where mask is \texttt{False}.
-    \item \texttt{np.percentile(a, q)} returns the value below which q percent of the values in a fall.
+    \item \texttt{np.cov(a)} treats each row of \texttt{a} as a variable, so an $m \times n$ input gives an $m \times m$ matrix.
+    \item \texttt{np.cov} normalizes by $n-1$; use \texttt{bias=True} for $n$ and \texttt{rowvar=False} for column variables.
+    \item \texttt{np.where(mask, a, b)} takes \texttt{a} where \texttt{mask} is \texttt{True}, else \texttt{b}.
+    \item \texttt{np.percentile(a, q)} returns the value below which \texttt{q} percent of the values in \texttt{a} fall.
     \item \texttt{np.dot(a, b)} returns the dot product; \texttt{np.cross(a, b)} returns the cross product.
-    \item \texttt{np.asarray(arr, dtype=float)} returns the arr as numpy array while treating its neteries as float.
-    \item \texttt{np.diag} returns an array as a diagnoal matrix.
-    \item \texttt{np.linalg.norm(v1)} calculates the euclidean norm of vector v1
-    \item \texttt{np.trace{matrix}} brings back the trace of a square matrix which is the sum of all the elements on the diagonal.
-    \item \texttt{np.linalg.det(matrix)} brings back the determinent of the matrix.
-    \item \texttt{arr = np.ravel(arr)} stretches a 2d matrix in a giant vecotr. 
-    \item \texttt{fancy indexing} is a term that we given numpy array a and the index array of integers idx. a[idx] return the reorientation of elements of a with respect to idx.
-    \item \texttt{np.arrange} 's use rule of thumb is whenever you're trying to apply a certain rule to every element of an array where that rule only depends on the index of the array itself, and not other elements. Essentionally, when a[idx] = f(i).
+    \item \texttt{np.asarray(arr, dtype=float)} converts \texttt{arr} to a NumPy array with float entries.
+    \item \texttt{np.diag(v)} builds a diagonal matrix from a 1D array \texttt{v}; given a 2D array, it extracts the diagonal.
+    \item \texttt{np.linalg.norm(v)} computes the Euclidean (L2) norm of the vector \texttt{v}.
+    \item \texttt{np.trace(matrix)} returns the trace of a square matrix, i.e., the sum of its diagonal elements.
+    \item \texttt{np.linalg.det(matrix)} returns the determinant of a square matrix.
+    \item \texttt{np.ravel(arr)} flattens a 2D matrix (or any array) into a 1D vector.
+    \item Fancy indexing: for an int array \texttt{idx}, \texttt{a[idx]} picks the elements of \texttt{a} in \texttt{idx} order.
+    \item Use \texttt{np.arange(n)} when each element depends only on its own index, i.e., \texttt{a[i] = f(i)}.
 \end{itemize}
 
 \section{Machine Learning}
@@ -242,7 +244,7 @@ To check the linear independance of a matrix A, if that matrix is a square matri
 
 \subsubsection{Naive Bayes}
 \label{subsubsec:ml:gla:nb}
-The Naive Bayes classifier relies on the naive assumption that features are independent of one another. Suppose there are $K$ classes to classify the variable $y$, given feature vector $\mathbf{x} = (x_1, \cdots, x_n)$. Based on Naive Bayes, the corresponding classifier is the function that assigns a class label $\hat{y} = C_k$ for some $k$, $1 \leq k \leq K$, as follows:
+The Naive Bayes classifier relies on the naive assumption that features are independent of one another. Suppose there are $K$ classes to classify the variable $y$, given a feature vector $\mathbf{x} = (x_1, \cdots, x_n)$. Based on Naive Bayes, the corresponding classifier is the function that assigns a class label $\hat{y} = C_k$ for some $k$, $1 \leq k \leq K$, as follows:
 \begin{equation}
 \label{eq:naive-bayes}
     \hat{y} = \operatorname*{argmax}_{1 \leq k \leq K} p(C_k) \prod_{i=1}^{n} p(x_i \mid C_k).
