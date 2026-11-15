@@ -1,0 +1,221 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathrsfs,bbm}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\op}{\operatorname}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\cj}{\overline}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\mc}{\mathcal}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tb}{\textbf}
+\newcommand{\tn}{\textnormal}
+
+\pagestyle{empty}
+
+\theoremstyle{definition}
+\newtheorem*{prop}{Proposition}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+\hskip -\arraycolsep
+\let\@ifnextchar\new@ifnextchar
+\array{#1}}
+\makeatother
+
+\begin{document}
+
+\section*{Exam 1 Review}
+
+Exam 1 will take place on Friday, March 7th in class and it will cover the following topics: 
+\begin{itemize}	
+	\item Systems of linear equations, including equivalent systems, row operations, types of solution sets, and homogeneous systems
+	
+	\item Matrix and vector notations for systems, including echelon forms and nonsingular matrices
+	
+	\item Vector operations, including addition, scaling, linear combinations, spanning sets, and linear independence
+	
+	\item Orthogonality, including inner products, norms, orthogonal/orthonormal sets, and the Gram-Schmidt process
+	
+	\item Matrix operations, including addition, scaling, transpose, adjoints, matrix multiplication, and matrix inverses.
+\end{itemize}
+
+\noindent The following list of practice problems will be similar to those on the exam:
+
+\begin{enumerate}
+	\item Describe the set of solutions of the following system of linear equations:
+	\begin{align*}
+		2x - 3y + z & = 0 \\
+		4 x - 6y + 2z & = 0 \\
+		x - y & = 1
+	\end{align*}
+	
+	\item Let $\tb{x} \in \R^n$. Prove that $(-1) \tb{x} = - \tb{x}$ using known facts of vector addition and scaling.
+	
+	\item Find the simplied form of
+	\begin{equation*}
+		\operatorname{span}\left( \begin{bmatrix} 1 \\ - 1 \\ 1 \end{bmatrix}, \; \begin{bmatrix} 2 \\ -3 \\ 3 \end{bmatrix}, \; \begin{bmatrix} 0 \\ 1 \\ - 1 \end{bmatrix} \right)
+	\end{equation*}
+	
+	\item Find all $t \in \R$ such that 
+	\begin{equation*}
+		\begin{bmatrix} -2 -t \\ 3 \end{bmatrix} \; \tn{and} \; \begin{bmatrix} 9 \\ - 2- t \end{bmatrix}
+	\end{equation*}
+	are linearly independent.
+	
+	\item Let $\tb{x},\tb{y} \in \R^n$ be such that $(\tb{x} + \tb{y}) \cdot (\tb{x} - \tb{y}) = 0$. Prove that $\|\tb{x}\| = \|\tb{y}\|$.
+        \\
+            \textbf{Answer}
+        \\
+        Since $(\tb{x} + \tb{y}) \cdot (\tb{x} - \tb{y}) = 0$, $(\tb{x} + \tb{y})$ and $(\tb{x} - \tb{y})$ are orthogonal. Hence, based on the Pythagorean theorem, and by setting $\alpha_1, \alpha_2 = 1$, we have:
+        \begin{align*}
+		& \left\| (\tb{x} + \tb{y}) +  (\tb{x} - \tb{y}) \right\|^2 = \|(\tb{x} + \tb{y})\|^2 + \|(\tb{x} - \tb{y})\|^2\\
+        \Rightarrow & \left\| 2\tb{x} \right\|^2 = \left\| \tb{x} \right\|^2 + \left\| \tb{y} \right\|^2 -2\tb{x} \cdot\tb{y} + \left\| \tb{x} \right\|^2 + \left\| \tb{y} \right\|^2 +2\tb{x} \cdot\tb{y} \\
+        \Rightarrow & 4\left\|\tb{x} \right\|^2 = 2\left\| \tb{x} \right\|^2 + 2\left\| \tb{y} \right\|^2 
+        \\
+        \Rightarrow & \left\|\tb{x} \right\|^2 = \left\| \tb{y} \right\|^2 
+	\end{align*}
+        Since $0 \leq \left\|\tb{x} \right\|, \left\| \tb{y} \right\|$:
+        \[\left\|\tb{x} \right\| = \left\| \tb{y} \right\|\]
+	
+	\item  Use the Cauchy-Schwarz inequality to prove that if $0 < a,b,c,d$, then
+	\begin{equation*}
+		16 \leq (a + b + c + d) \left( \frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d} \right)
+	\end{equation*}	
+	
+	\item Perform the Gram--Schmidt process on the following:
+	\begin{equation*}
+		\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}, \begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix}
+	\end{equation*}
+        \\
+            \textbf{Answer}
+        \\
+        Consider the given vectors in the following order:
+        \begin{equation*}
+		x_1 = \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}, 
+            x_2 = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}, 
+            x_3 =\begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix}
+        \end{equation*}
+        Now, suppose we want to construct the orthogonal set $v_1, v_2, v_3 \in \mathbb{R}^3$ using the Gram--Schmidt process. Based on this process, and proceeding inductively, we have:
+        \[v_1 = x_1 = \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}\]
+        To calculate $v_2$:
+        \begin{align*}
+            v_2 
+            & = x_2 - \frac{x_2 \cdot v_1}{v_1 \cdot v_1}v_1 \\
+            & = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} - \frac{\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} \cdot \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}}{\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}}\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}\\
+            & = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} - \frac{0}{12}\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}\\
+            & = \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} 
+        \end{align*}
+        To calculate $v_3$:
+        \begin{align*}
+            v_3
+            & = \begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} - \frac{x_3 \cdot v_1}{v_1 \cdot v_1}v_1 - \frac{x_3 \cdot v_2}{v_2 \cdot v_2}v_2 \\
+            & = \begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} - \frac{\begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} \cdot \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}}{\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}}\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} - \frac{\begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}}{\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}}\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}\\
+            & = \begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} - \frac{8}{12}\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix} - \frac{-1}{2}\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}\\ 
+            & = \begin{bmatrix} 0 \\ 3 \\ 1 \end{bmatrix} - \begin{bmatrix} \frac{4}{3} \\ \frac{4}{3} \\ \frac{4}{3} \end{bmatrix} +\begin{bmatrix} \frac{1}{2} \\ 0 \\ -\frac{1}{2} \end{bmatrix}\\ 
+            & = \begin{bmatrix} -\frac{5}{6} \\ \frac{5}{3} \\ -\frac{5}{6} \end{bmatrix}
+        \end{align*}
+
+		
+	\item A complex matrix $\tb{A}$ is said to be \emph{self-adjoint} if $\tb{A}^\ast = \tb{A}$. 
+	\begin{enumerate}
+		\item Prove that 
+		\begin{equation*}
+			\frac{1}{2} \tb{A} + \frac{1}{2} \tb{A}^\ast
+		\end{equation*}
+		is self-adjoint
+            \\
+            \textbf{Answer}
+            \\
+            \begin{align*}
+			(\frac{1}{2} \tb{A} + \frac{1}{2} \tb{A}^\ast)^\ast 
+                & = (\frac{1}{2} \tb{A})^\ast + (\frac{1}{2} \tb{A}^\ast)^\ast \\
+                & = (\cj{\frac{1}{2} \tb{A}})^\top + (\cj{\frac{1}{2} \tb{A}^\ast})^\top \\
+                & = (\frac{1}{2} \cj{\tb{A}})^\top + (\frac{1}{2}\cj{ \tb{A}^\ast})^\top \\
+                & = \frac{1}{2} (\cj{\tb{A}})^\top + \frac{1}{2}(\cj{ \tb{A}^\ast})^\top \\
+                & = \frac{1}{2}\tb{A}^\ast + \frac{1}{2} (\tb{A}^\ast)^\ast \\
+                & = \frac{1}{2}\tb{A}^\ast + \frac{1}{2} \tb{A} \\
+                & = \frac{1}{2} \tb{A} + \frac{1}{2}\tb{A}^\ast
+		\end{align*}
+		
+		\item Prove that
+		\begin{equation*}
+			\tb{A}^\ast \tb{A}
+		\end{equation*}
+		is self-adjoint
+            \\
+            \textbf{Answer}
+            \\
+            \begin{align*}
+            (\tb{A}^\ast \tb{A})^\ast =\tb{A}^\ast(\tb{A}^\ast)^\ast =\tb{A}^\ast\tb{A}
+            \end{align*}
+
+	\end{enumerate}
+	
+	\item Solve the following system
+	\begin{align*}
+		7 x + 3y & = 1 \\
+		5 x + 2y & = 1
+	\end{align*}
+	using matrix inverses.
+        \\
+        \textbf{Answer}
+        \\
+        As a matrix equation $\tb{A} \tb{x} = \tb{b}$ the following system can be written as:
+	\begin{equation*}
+		\begin{bmatrix} 7 & 3 \\ 5 & 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+	\end{equation*}
+        The inverse of $\tb{A}$ is given by
+	\begin{equation*}
+		\frac{1}{7\cdot2 - 5\cdot3} \begin{bmatrix} 2 & -3 \\ -5 & 7 \end{bmatrix} = -1\begin{bmatrix} 2 & -3 \\ -5 & 7 \end{bmatrix} = \begin{bmatrix} -2 & 3 \\ 5 & -7 \end{bmatrix}
+	\end{equation*}
+	and thus
+	\begin{equation*}
+		\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} -2 & 3 \\ 5 & -7 \end{bmatrix}  \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}
+	\end{equation*}
+	
+	\item Find the inverse of the matrix
+	\begin{equation*}
+		\tb{A} = \begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3 \\ 4 & -3 & 8 \end{bmatrix}
+	\end{equation*}
+        \\
+        \textbf{Answer}
+        \\
+        For any $1 \leq k \leq 3$ the columns of $\tb{A}^{-1}$ can be found by solving the system
+	\begin{equation*}
+		\tb{A} \tb{x} = \tb{e}_k
+	\end{equation*}
+	This can be done simultaneously as an augmented matrix as 
+    follows: 
+	\begin{equation*}
+		\begin{bmatrix}[ccc|ccc] 0 & 1 & 2 & 1 & 0 & 0 \\ 1 & 0 & 3& 0 & 1 & 0 \\ 4 & -3 & 8 & 0 & 0 & 1 \end{bmatrix} \longrightarrow \begin{bmatrix}[ccc|ccc] 1 & 0 & 0 & -4.5 & 7 & -1.5 \\ 0 & 1 & 0 & -2 & 4 & -1 \\ 0 & 0 & 1 & 1.5 & -2 & 0.5 \end{bmatrix}
+	\end{equation*}
+    Hence
+    \begin{equation*}
+    \tb{A}^{-1} = \begin{bmatrix} -4.5 & 7 & -1.5 \\ -2 & 4 & -1 \\ 1.5 & -2 & 0.5 \end{bmatrix}
+    \end{equation*}
+
+    \item Show
+    \[(\tb{A} \tb{B})^\ast = \tb{B}^\ast \tb{A}^\ast\]
+    \\
+        \textbf{Answer}
+    \\
+    \begin{align*}
+		((\tb{A} \tb{B})^\ast)_{j,k}
+            & = (\cj{(\tb{A} \tb{B})^{\top}})_{j,k} \\
+            & = \cj{(\tb{A} \tb{B})^{\top}_{j,k}} \\
+            & = \cj{(\tb{B}^{\top} \tb{A}^{\top} )_{j,k}} \\
+            & = \cj{\sum_{h=1}^p\tb{B}^{\top}_{j,h}\cdot \tb{A}^{\top}_{h,k}} \\
+            & = \sum_{h=1}^p\cj{\tb{B}^{\top}_{j,h}\cdot \tb{A}^{\top}_{h,k}} \\
+            & = \sum_{h=1}^p\cj{\tb{B}^{\top}_{j,h}} \cdot \cj{\tb{A}^{\top}_{h,k}} \\ 
+            & = \sum_{h=1}^p(\cj{\tb{B}^{\top}})_{j,h} \cdot (\cj{\tb{A}^{\top}})_{h,k} \\
+            & = \sum_{h=1}^p(\tb{B}^\ast)_{j,h} \cdot (\tb{A}^\ast)_{h,k} \\
+            & = \tb{B}^\ast \tb{A}^\ast
+		\end{align*}
+
+\end{enumerate}
+
+\end{document}

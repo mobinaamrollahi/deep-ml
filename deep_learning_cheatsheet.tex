@@ -1,0 +1,470 @@
+\documentclass[12pt]{article}
+\usepackage{epsf, amssymb, amsmath, amsthm, hyperref, tikz, array, booktabs, calc, accents}
+\usetikzlibrary{arrows, shapes, snakes, automata, positioning, backgrounds, petri, tikzmark, calc, decorations.pathreplacing}
+\tikzset{every picture/.style={remember picture}}
+\usepackage[english]{babel}
+\newcommand\myubar[1]{%
+\underaccent{\bar}{#1}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\title{---}
+\author{---}
+
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\topmargin}{-0.6in}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\textheight}{10.3in}
+\setlength{\textwidth}{7.5in}
+\setlength{\topskip}{0cm}
+\setlength{\parskip}{4mm}
+\setlength{\parindent}{0cm}
+\renewcommand{\baselinestretch}{1.15}
+\renewcommand{\arraystretch}{1.15}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\dblfloatpagefraction}{0.99}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\textfraction}{0.01}
+
+
+% numeric sets
+
+\newcommand{\Reals}{\mathbb{R}}      % real numbers
+\newcommand{\Naturals}{\mathbb{N}}   % natural numbers
+\newcommand{\Integers}{\mathbb{Z}}   % integer numbers
+\newcommand{\Rationals}{\mathbb{Q}}  % rational numbers
+\newcommand{\Complexes}{\mathbb{C}}  % complex numbers
+
+% math symbols
+
+\newcommand{\IFF}{\mbox{$\Longleftrightarrow$}}    % biimplication
+\newcommand{\THEN}{\mbox{$\Rightarrow$}}           % implication
+
+\tikzset{
+  node distance=1mm,
+  terminal/.style={
+    rectangle, % The shape:
+    minimum size=1mm, % The size:
+    thick, draw=black!75, % The border:
+    fill=black!20, % The filling:
+    font=\ttfamily
+  },
+  nonterminal/.style={
+    align=center,
+    circle, % The shape:
+    minimum size=3mm, % The size:
+    text width=3mm, % This forces nodes to have the same size
+    thick, draw=black!75, % The border:
+    fill=black!20, % The filling:
+    font=\itshape,
+    double, double distance=1mm % Makes the border thicker for final states
+  },
+}
+
+
+\pagestyle{empty}
+
+\begin{document}
+
+%\maketitle
+
+\noindent\begin{tabular}{p{4cm}p{4cm}p{10cm}}
+\textbf{COMS 6730} & \textbf{Spring 2025} & \textbf{Name: \underline{Mobina Amrollahi\hspace{4cm}}}
+\end{tabular}
+
+
+\begin{center}
+   \textbf{CheatSheet} 
+\end{center}
+\section*{Linear Models}
+\begin{enumerate}
+    \item \textbf{Linear regression} is a linear model, trying to predict a \textbf{continuous scaler}.
+    \item \textbf{RSS} in linear regression minimizes the sum of the squared distances between the label of each data point and the predicted value.
+    \item The weights can be found by \textbf{maximizing the likelihood of the data} under the assumption of Gaussian noise, which is equivalent to \textbf{minimizing the RSS}.
+    \item Finding the weights by solving the normal equations might not be possible as $X^TX$ might not exist. 
+    \item If $X$, the feature matrix, is \textbf{full rank}, then the optimal solution for linear regression exists and is unique.
+
+    \item three assumptions of linear regression: 1. Data is linear, 2. Data points are independent, 3. The residual follows normal distribution with zero mean.
+    \item The perceptron learning algorithm guarantees convergence for the dataset that is \textbf{linearly separable}, regardless of the initial data or weights.
+
+    \item \textbf{Logistic regression} is a linear model because the decision boundary is a linear function of the input features.
+
+    \item The \textbf{monotonicity} of the sigmoid function, ensures the logistic regression produce a linear decision boundary. By changing sigmoid to sine for inastance, logistic regression becomes a non-linear model.
+\end{enumerate}
+
+\section*{Gradient Descent Algorithm}
+\begin{enumerate}
+    \item Batch size affect both the \textbf{forward} and \textbf{backward} propagation. 
+    \item \begin{table}[h!]
+        \centering
+        \scriptsize
+        \begin{tabular}{>{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright\arraybackslash}p{4cm}}
+        \toprule
+        \textbf{Batch}
+        & 
+        \textbf{Mini - Batch} 
+        & 
+        \textbf{Stochastic} \\
+        \midrule
+        
+        \begin{itemize}
+            \item process the entire dataset at once
+            \item smoother, more accurate gradient estimates
+            \item computationally expensive at practice
+        \end{itemize}
+        
+        & 
+        
+        \begin{itemize}
+            \item helps escape local minima during optimization
+            \item introduces noise into the optimization process 
+            \item small to medium batch sizes can lead to better generalization
+        \end{itemize}
+        
+        &
+        
+        \begin{itemize}
+            \item update weights using one sample at a time
+        \end{itemize}
+        
+        \\
+        
+        \bottomrule
+        \end{tabular}
+        \caption{Comparison between Different Algorithms}
+    \end{table}
+\end{enumerate}
+
+    
+\section*{Convolution}
+    \begin{enumerate}
+    \item Kernel is a small matrix. They're typically small and scan across the image.
+    \item Feature maps: the result of applying filters to the input.
+    \item The primary purpose of a convolution layer is to extract spatial features from the input.
+    \item A convolution operation multiplies kernel and input element-wise, then sums them up.
+    \item Hand-Crafted Kernels:
+    \begin{table}[h!]
+    \centering
+    \small
+    \begin{tabular}{>{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright\arraybackslash}p{4cm}}
+    \toprule
+    \textbf{Box Filter} & \textbf{Sharpening Filter} & \textbf{Sobel (Vertical Edge)} & \textbf{Sobel (Horizontal Edge)} \\
+    \midrule
+    % Filter matrices
+    \[
+    \begin{bmatrix}
+    \frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+    \frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+    \frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+    \end{bmatrix}
+    \] 
+    & 
+    \[
+    \begin{bmatrix}
+    0 & -1 & 0 \\
+    -1 & 5 & -1 \\
+    0 & -1 & 0 \\
+    \end{bmatrix}
+    \] 
+    & 
+    \[
+    \begin{bmatrix}
+    -1 & 0 & 1 \\
+    -2 & 0 & 2 \\
+    -1 & 0 & 1 \\
+    \end{bmatrix}
+    \]
+    & 
+    \[
+    \begin{bmatrix}
+    -1 & -2 & -1 \\
+    0  & 0  & 0 \\
+    1  & 2  & 1 \\
+    \end{bmatrix}
+    \] \\
+    
+    % Properties
+    \midrule
+    
+    \begin{itemize}
+        \item Averages neighboring pixels
+        \item Smooths the image
+        \item Reduces noise
+        \item Removes sharp features
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item Enhances edges
+        \item Emphasizes differences with neighbors
+        \item Increases sharpness
+        \item High-pass filter
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item Detects vertical edges
+        \item Computes horizontal gradients
+        \item Sensitive to vertical features
+        \item Emphasizes vertical boundaries
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item Detects horizontal edges
+        \item Computes vertical gradients
+        \item Sensitive to horizontal features
+        \item Emphasizes horizontal boundaries
+    \end{itemize}
+    \\
+    
+    \bottomrule
+    \end{tabular}
+    \caption{Comparison of Different Filters and Their Properties}
+    \end{table}
+    \item Despite hand-crafted filters, the learned ones are randomly initialized, and then optimized through back-propagation.
+
+    \item Convolution uses a set of kernels, each applied to an individual input channel.
+
+    \item The main effect of \textbf{stride} is that it reduces the output feature map.
+
+    \item The main effect of \textbf{padding} is to ensure all pixels are equally used.
+
+    \item Number of trainable parameters in each convolution layer: $K \times K \times C_{in} \times C_{out}$.
+
+    \item Number of multi-add operations or computational cost in each convolution layer: $K \times K \times C_{in} \times C_{out} \times W' \times D'$.
+
+    \item \textbf{Dilated convolutions} enlarges the receptive field by introducing gaps (holes) in the kernel to cover a larger area.  For a dilation “rate” $d$, $d-1$ spaces are inserted between kernel elements such that $d = 1$ corresponds to a regular convolution.
+
+    \item Output dimension: $W' = \frac{W-K+2P -(k-1)(d-1)}{S} + 1$.
+
+    \item Receptive Field: the region of the input space that affects a particular unit in the network.
+    \[\forall \quad l: R_l = R_{l-1} + (k_{l} - 1) \times J_{l-1} \times d_l\]
+    The jump $J_l$ describes how far we move in the input when moving one unit in the feature map:
+    \[
+    J_{l} = J_{l-1} \times S_{l}, \quad \text{and} \quad J_0 = 1, \quad R_0 = 1
+    \]
+    where
+    \begin{itemize}
+        \item $R_l$: receptive field size at layer $l$
+        \item $k_{l}$: kernel size at layer $l$
+        \item $J_{l-1}$: jump (effective stride) from the previous layer
+        \item $S_{l}$: stride at layer $l$
+        \item $d_l$: dilation rate at layer $l$
+    \end{itemize}
+    In which, you can see for a network with one layer, only \textbf{the kernel size} can affect the receptive field. However, once the number of kernels increases, the \textbf{stride} and \textbf{pooling layers} also affect it.
+
+    \item $1 \times 1$ Convolution: is used to reduce the number of channels (dimensionality) while introducing non-linearity.
+
+    \item \textbf{Pooling layers} reduce the output feature maps, while avoid overfitting, and enlarging the receptive field.
+
+    \item Solving the high dimension problem:
+    \begin{equation*}
+    \tikz[baseline]{\node(d1) {$W$}} \times \tikz[baseline]{\node(d2){$D$}} \times \tikz[baseline]{\node(d3) {$C$}}
+    \end{equation*}
+    \vspace{1cm}\par
+    % insert text
+    \noindent\hfil\begin{tikzpicture}
+    \node (t1) {Increasing the Stride};
+    \node[above right] (t2) at (t1.east) {Max/Avg Pooling Layers};
+    \node[right,text width=2.5cm,align=center] (t3) at (t2.east)
+     {$1 \times 1$ Convolution};
+     \node[below left, align=center] (t4) at (t1.west)
+     {Depthwise Separable Convolution};
+    \end{tikzpicture}
+    % insert lines between text
+    \begin{tikzpicture}[overlay]
+    \draw[blue,thick,->] (d1) to [in=90,out=245] (t1.north);
+    \draw[green,thick,->] (d1) to [in=90,out=245] (t2.north);
+    \draw[red,thick,->] (d1) to [in=90,out=245] (t4.north);
+    \draw[blue,thick,->] (d2) to [in=90,out=265] (t1.north);
+    \draw[green,thick,->] (d2) to [in=90,out=265] (t2.north);
+    \draw[red,thick,->] (d2) to [in=90,out=245] (t4.north);
+    \draw[black,thick,->] (d3) to [in=90,out=265] (t3.north);
+    \end{tikzpicture}
+
+    \item Activation functions are element-wise function that introduce non-linearity. Tanh and sigmoid have gradient vanishing problems, meanwhile ReLU has the problem of \textbf{dying neurons}. One attempt to fix the dying neurons problem is to use \textbf{leaky ReLU}.
+
+    \item  \textbf{Nearest Neighbors}, \textbf{Bi-Linear Interpolation}, \textbf{Bed of Nails}, and \textbf{Max-Unpooling} are all \textbf{deterministic} up sampling techniques, meanwhile transposed convolution is learnable.
+
+    \item \textbf{Bed of Nails} is followed by a convolution layer that can interpolate or blend the sparse data points to generate meaningful and smooth output.
+
+    \item \textbf{Max-Unpooling} it's always following a corresponding max-pooling layer. 
+
+    \item Transposed convolution is often \textbf{incorrectly} called \textbf{de-convolution}. However de-convolution refers to the inverse operation of standard convolution. The name \textbf{transposed} corresponds to multiplying by the transpose of the convolution kernel matrix. Transposed convolutions swap the forward and backward passes of a convolution.
+    \textbf{Output size formula}:
+    \[
+    W_{out} = S \times (W - 1) + K - 2P
+    \]
+
+    \item In transposed convolution if $s > 1$ we will put $s -1$ zeros between input elements and in the boarders.
+
+    \item Unlike deep convolutional networks, \textbf{attention} mechanisms can capture long-range dependencies in a single layer. They're called global extractors, because each query attends all the keys and values.
+
+    \item \textbf{Scaled Dot-Product Attention:}
+    
+    \[
+    \text{Attention}(Q, K, V) = \text{Softmax}\left( \frac{QK^T}{\sqrt{d_k}} \right) V
+    \]
+    
+    \begin{itemize}
+        \item $Q \in \mathbb{R}^{n \times d}$  
+        \item $K \in \mathbb{R}^{m \times d}$ 
+        \item $V \in \mathbb{R}^{m \times p}$  
+        \item $d_k$: Dimensionality of keys (used for scaling)
+    \end{itemize}
+
+    \item \textbf{Self-Attention with a Single Input Matrix $X$:}
+    \[
+    Q = X W_Q, \quad K = X W_K, \quad V = X W_V
+    \]
+    
+    \[
+    \text{Attention}(X) = \text{Softmax}\left( \frac{(X W_Q) (X W_K)^T}{\sqrt{d_k}} \right) (X W_V)
+    \]
+    
+    \begin{itemize}
+        \item When using self-attention, $X$ is projected into $Q, K, V$ using trainable weight matrices.
+        \item This allows each token in $X$ to attend to others, learning dependencies across positions.
+    \end{itemize}
+
+    \item \textbf{Convolution} and \textbf{attention} layers can be interpreted as variations of fully-connected layers, since they're all matrix multiplications. However, pooling layers (e.g., max pooling, average pooling) perform non-parametric reduction operations and are not typically expressed as matrix multiplications.
+    \end{enumerate}
+    
+\section*{Convolution Neural Network}
+\begin{enumerate}
+    \item Winners of ImageNet Comparison:
+    \begin{table}[h!]
+    \centering
+    \scriptsize
+    \begin{tabular}{>{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright\arraybackslash}p{4cm}}
+    \toprule
+    \textbf{AlexNet} & \textbf{VGG} & \textbf{ResNet} & \textbf{DenseNet} \\
+    \midrule
+    \begin{itemize}
+        \item 8 layers
+        \item ReLU Activation Function
+        \item High number of kernels at each layer
+        \item Different kernel sizes of $11 \times 11, 5 \times 5, 3 \times 3$.
+        \item Introduced Dropout
+        \item Trained with Data Augmentation
+        \item Overlap pooling layer
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item 19 Layers
+        \item ReLU Activation Function
+        \item Fixed pattern of conv + conv + pool at each layer
+        \item Fixed kernel size of $3 \times 3$.
+        \item Max pooling $2 \times 2$ with stride $=2$
+        \item Same padding everywhere
+        \item Has a degradation problem: vanishing gradients or explosion
+        \item Prone to Overfit
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item 152 Layers
+        \item Skip connection: preventing the gradient vanishing 
+        \item Batch Normalization: preventing the gradient explosion 
+        \item Each residual network: $3 \times 3$ conv + Batch Normalization + ReLU + $3 \times 3$ conv + Batch Normalization
+    \end{itemize}
+    &
+    \begin{itemize}
+        \item Concatenates the outputs from different layers.
+        \item Computes vertical gradients
+        \item Uses more memory compare to ResNet
+    \end{itemize}
+    \\
+    
+    \bottomrule
+    \end{tabular}
+    \caption{Comparison of Different Deep Learning Architectures}
+    \end{table}
+
+    \item In \textbf{DenseNet}, the $l$-th layer receives as input the concatenation of all feature maps produced by previous layers:
+
+    \[
+    x_l = H_l([x_0, x_1, x_2, ..., x_{l-1}])
+    \]
+    
+    Where:
+    \begin{itemize}
+        \item $[x_0, x_1, ..., x_{l-1}]$ represents the concatenation of feature maps along the channel dimension.
+        \item $H_l(\cdot)$ is the composite function of operations: BatchNorm, ReLU, and Convolution.
+        \item If the growth rate is $k$, the input depth to layer $l$ is:
+        \[
+        d_{in} = d_0 + k \times (l - 1)
+        \]
+    \end{itemize}
+
+    \item In \textbf{Transfer Learning}:
+    \begin{enumerate}
+        \item Train a network like VGG or ResNet on a large dataset
+        \item Freeze the earlier convolution layers weights
+        \item Replace the fully connected layer with new layer specific to the task
+    \end{enumerate}
+
+    \item Weight Initialization in CNNs:
+    \begin{table}[h!]
+        \centering
+        \scriptsize
+        \begin{tabular}{>{\raggedright}p{4cm}| >{\raggedright}p{4cm}| >{\raggedright\arraybackslash}p{4cm}}
+        \toprule
+        \textbf{Xavier Initialization}
+        & 
+        \textbf{Kaiming Initialization} 
+        & 
+        \textbf{Random Initialization} \\
+        \midrule
+        
+        \begin{itemize}
+            \item $W \sim \mathcal{N} \left( 0, \frac{2}{n_{in} + n_{out}} \right)$
+            \item Works well with sigmoid and tanh activations.
+        \end{itemize}
+        
+        & 
+        
+        \begin{itemize}
+            \item $W \sim \mathcal{N} \left( 0, \frac{2}{n_{in}} \right)$
+            \item Best for ReLU and Leaky ReLU activations.
+        \end{itemize}
+        
+        &
+        
+        \begin{itemize}
+            \item $W \sim \mathcal{N}(0, 10^{-2})$
+            \item Works on small networks
+            \item still have problems on deep networks
+            \item Weight gradients in deeper layers have variances of nearly zero
+        \end{itemize}
+        
+        \\
+        
+        \bottomrule
+        \end{tabular}
+        \caption{Weight Initialization}
+    \end{table}
+
+    \item \textbf{Batch Normalization}: During training, the mean and variance are computed from each mini-batch. During testing, the moving average of the mean and variance, calculated during training, is used instead.
+
+    \item \textbf{Batch size} has an impact in batch normalization.
+
+    \item During the prepossessing we want the \textbf{input data} to be \textbf{normalized} and \textbf{zero-centered.}
+
+    \item \textbf{Data augmentation} increases the diversity of the training dataset, forcing the model to generalize better. However, the labels of the augmented data remain the \textbf{same}.
+
+    \item  During training, \textbf{Dropout} randomly deactivates neurons with probability $p$, which lowers the expected output. To maintain consistency between training and testing:
+
+    \begin{itemize}
+        \item \textbf{Inverted Dropout (common)}: During training, scale the output of active neurons by $\frac{1}{1 - p}$.
+        \item \textbf{Standard Dropout}: During training, no scaling is applied. During testing, scale the activations by $(1 - p)$.
+    \end{itemize}
+
+    \item Since in the drop-out neurons will randomly be set to zero, the number of trainable parameters won't change.
+
+    \item Drop-out is only applied to the \textbf{hidden} layer, and not the output layer.
+\end{enumerate}
+
+     
+
+\end{document}
