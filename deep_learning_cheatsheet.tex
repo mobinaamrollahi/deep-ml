@@ -81,23 +81,23 @@
 \end{center}
 \section*{Linear Models}
 \begin{enumerate}
-    \item \textbf{Linear regression} is a linear model, trying to predict a \textbf{continuous scaler}.
+    \item \textbf{Linear regression} is a linear model, trying to predict a \textbf{continuous scalar}.
     \item \textbf{RSS} in linear regression minimizes the sum of the squared distances between the label of each data point and the predicted value.
     \item The weights can be found by \textbf{maximizing the likelihood of the data} under the assumption of Gaussian noise, which is equivalent to \textbf{minimizing the RSS}.
     \item Finding the weights by solving the normal equations might not be possible as $X^TX$ might not exist. 
     \item If $X$, the feature matrix, is \textbf{full rank}, then the optimal solution for linear regression exists and is unique.
 
-    \item three assumptions of linear regression: 1. Data is linear, 2. Data points are independent, 3. The residual follows normal distribution with zero mean.
+    \item Three assumptions of linear regression: 1. Data is linear, 2. Data points are independent, 3. The residual follows a normal distribution with zero mean.
     \item The perceptron learning algorithm guarantees convergence for the dataset that is \textbf{linearly separable}, regardless of the initial data or weights.
 
     \item \textbf{Logistic regression} is a linear model because the decision boundary is a linear function of the input features.
 
-    \item The \textbf{monotonicity} of the sigmoid function, ensures the logistic regression produce a linear decision boundary. By changing sigmoid to sine for inastance, logistic regression becomes a non-linear model.
+    \item The \textbf{monotonicity} of the sigmoid function ensures that logistic regression produces a linear decision boundary. By changing sigmoid to sine for instance, logistic regression becomes a non-linear model.
 \end{enumerate}
 
 \section*{Gradient Descent Algorithm}
 \begin{enumerate}
-    \item Batch size affect both the \textbf{forward} and \textbf{backward} propagation. 
+    \item Batch size affects both the \textbf{forward} and \textbf{backward} propagation.
     \item \begin{table}[h!]
         \centering
         \scriptsize
@@ -113,7 +113,7 @@
         \begin{itemize}
             \item process the entire dataset at once
             \item smoother, more accurate gradient estimates
-            \item computationally expensive at practice
+            \item computationally expensive in practice
         \end{itemize}
         
         & 
@@ -297,7 +297,7 @@
     W_{out} = S \times (W - 1) + K - 2P
     \]
 
-    \item In transposed convolution if $s > 1$ we will put $s -1$ zeros between input elements and in the boarders.
+    \item In transposed convolution if $s > 1$ we will put $s -1$ zeros between input elements and in the borders.
 
     \item Unlike deep convolutional networks, \textbf{attention} mechanisms can capture long-range dependencies in a single layer. They're called global extractors, because each query attends all the keys and values.
 
