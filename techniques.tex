@@ -233,6 +233,14 @@ To check whether a set of vectors is linearly independent, stack them into a mat
     \item Use \texttt{np.arange(n)} when each element depends only on its own index, i.e., \texttt{a[i] = f(i)}.
 \end{itemize}
 
+\section{Torch}
+\label{sec:torch}
+\begin{itemize}
+    \item \texttt{torch.tensor(vector, dtype=torch.float32)} wraps the vector into a tensor of type float 32.
+    \item \texttt{torch.reshape(tensor, ())} reshapes an already tensor to the given shape. If its not possible....
+    \item \texttt{torch.transpose(tensor, dim0, dim1} would transpose the tensor along the dimension 0 and dimesion 1 since the transpose can happen in tensors of higher dimension, and along different axis. 
+\end{itemize}
+
 \section{Machine Learning}
 \label{sec:ml}
 
