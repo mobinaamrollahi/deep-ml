@@ -236,9 +236,9 @@ To check whether a set of vectors is linearly independent, stack them into a mat
 \section{Torch}
 \label{sec:torch}
 \begin{itemize}
-    \item \texttt{torch.tensor(vector, dtype=torch.float32)} wraps the vector into a tensor of type float 32.
-    \item \texttt{torch.reshape(tensor, ())} reshapes an already tensor to the given shape. If its not possible....
-    \item \texttt{torch.transpose(tensor, dim0, dim1} would transpose the tensor along the dimension 0 and dimesion 1 since the transpose can happen in tensors of higher dimension, and along different axis. 
+    \item \texttt{torch.tensor(vector, dtype=torch.float32)} wraps the vector into a tensor of type \texttt{float32}.
+    \item \texttt{torch.reshape(tensor, shape)} reshapes a tensor to the given shape; it returns a view when possible, otherwise a copy; incompatible sizes raise a \texttt{RuntimeError}.
+    \item \texttt{torch.transpose(tensor, dim0, dim1)} swaps dimensions \texttt{dim0} and \texttt{dim1} of the tensor; the two-argument form generalizes matrix transposition to higher-dimensional tensors along arbitrary axes.
 \end{itemize}
 
 \section{Machine Learning}
