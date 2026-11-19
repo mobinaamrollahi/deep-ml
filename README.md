@@ -2,7 +2,7 @@
 
 My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solution here was written by hand.
 
-**41** solved · 41 problems · 0 labs · 0 math
+**42** solved · 42 problems · 0 labs · 0 math
 
 ![Coverage](./coverage.svg)
 
@@ -27,6 +27,7 @@ My machine learning practice from [Deep-ML](https://www.deep-ml.com). Every solu
 | [Exponential Distribution PDF and CDF](https://www.deep-ml.com/problems/340) | easy | 2026-10-10 | [solution](problems/0340-exponential-distribution-pdf-and-cdf) |
 | [Feature Scaling Implementation](https://www.deep-ml.com/problems/16) | easy | 2026-11-05 | [solution](problems/0016-feature-scaling-implementation) |
 | [Gibbs Softmax Action Selection](https://www.deep-ml.com/problems/641) | easy | 2026-10-14 | [solution](problems/0641-gibbs-softmax-action-selection) |
+| [Gradient of a Square with Autograd](https://www.deep-ml.com/problems/1222) | easy | 2026-11-19 | [solution](problems/1222-gradient-of-a-square-with-autograd) |
 | [Implementation of Log Softmax Function](https://www.deep-ml.com/problems/39) | easy | 2026-10-14 | [solution](problems/0039-implementation-of-log-softmax-function) |
 | [L2 Normalization Along an Axis](https://www.deep-ml.com/problems/1022) | easy | 2026-11-05 | [solution](problems/1022-l2-normalization-along-an-axis) |
 | [Matrix Determinant & Trace](https://www.deep-ml.com/problems/195) | easy | 2026-11-14 | [solution](problems/0195-matrix-determinant-trace) |
